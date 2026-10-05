@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import Wave from "../components/Wave.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { drives, programs, fmtDate } from "../data/site.js";
+
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = drives.items.filter((d) => d.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+const past = drives.items.filter((d) => d.date < today).sort((a, b) => b.date.localeCompare(a.date));
+const prog = Object.fromEntries(programs.map((p) => [p.slug, p]));
+const parts = (iso) => ({
+  day: fmtDate(iso, { day: "2-digit" }),
+  month: fmtDate(iso, { month: "short" }),
+  weekday: fmtDate(iso, { weekday: "long" }),
+});
+---
+
+<BaseLayout title="Drives — Saru Charitable Trust" description="Upcoming volunteer drives in Ahmedabad: pick a drive, pick a role, and come along.">
+  <PageHero
+    eyebrow="Volunteer drives"
+    title="Come along, <span class='crayon' style='--crayon:var(--parrot)'>this Sunday</span>"
+    sub="Pick a drive, pick a role. No experience needed, just a warm heart and two free hours."
+    art="drive-van"
+    artAlt="A volunteer van decorated with a marigold toran"
+    color="var(--parrot)"
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-parrot)" />
+  <section class="section section--parrot">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter drives by program" hidden>
+        <button type="button" class="filter" aria-pressed="true" data-filter="all">All</button>
+        {programs.map((p) => (
+          <button type="button" class="filter" aria-pressed="false" data-filter={p.slug} style={`--accent:${p.color}`}>{p.name}</button>
+        ))}
+      </div>
+
+      <h2 class="group-title">Upcoming{drives.placeholder && <span class="sample-tag">sample</span>}</h2>
+      <ul class="drives" role="list" data-list>
+        {upcoming.map((d) => {
+          const f = parts(d.date);
+          return (
+            <li class="sticker drive reveal" data-program={d.program} style={`--accent:${d.color}`}>
+              <div class="date"><span class="day">{f.day}</span><span class="month">{f.month}</span></div>
+              <div class="body">
+                <p class="meta">{f.weekday} · {d.time}</p>
+                <h3>{d.title}</h3>
+                <p class="place">📍 {d.place}</p>
+                <p class="prog">{prog[d.program]?.name} · {prog[d.program]?.meaning}</p>
+                <ul class="chips">{d.roles.map((r) => <li>{r}</li>)}</ul>
+                <div class="foot">
+                  {d.spots > 0 ? <span><strong>{d.spots}</strong> spots left</span> : <span class="full">Full</span>}
+                  <a class="btn btn--mango join" href={`/volunteer/?drive=${d.slug}`}>Join<span class="sr-only"> {d.title}</span></a>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <div class="empty" hidden data-empty>
+        <img class="art" src="/art/gauri-nandu.svg" alt="Gauri the cow and Nandu the calf, resting" loading="lazy" />
+        <p>No drives for this program right now. Gauri is resting. Check back soon!</p>
+      </div>
+
+      {past.length > 0 && (
+        <>
+          <h2 class="group-title past-title">Recent drives</h2>
+          <ul class="drives past" role="list">
+            {past.map((d) => {
+              const f = parts(d.date);
+              return (
+                <li class="sticker drive" data-program={d.program} style={`--accent:${d.color}`}>
+                  <div class="date"><span class="day">{f.day}</span><span class="month">{f.month}</span></div>
+                  <div class="body">
+                    <p class="meta">{f.weekday}</p>
+                    <h3>{d.title}</h3>
+                    <p class="place">📍 {d.place}</p>
+                    <span class="done">Done ✓ Thank you, volunteers!</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+  <Wave from="var(--wash-parrot)" to="var(--paper)" flip />
+
+  <CtaBand title="Want to host a drive <span class='crayon'>with us</span>?" text="Schools, offices and families can sponsor or run a drive together. Write to us and we'll plan it with you." art="letter-pen" />
+</BaseLayout>
+
+<script>
+  // Filters are an enhancement: without JS every drive is simply listed.
+  const bar = document.querySelector<HTMLElement>(".filters");
+  if (bar) {
+    bar.hidden = false;
+    const cards = document.querySelectorAll<HTMLElement>("[data-list] > li");
+    const empty = document.querySelector<HTMLElement>("[data-empty]");
+    bar.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-filter]");
+      if (!btn) return;
+      bar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      const f = btn.dataset.filter;
+      let shown = 0;
+      cards.forEach((c) => {
+        const show = f === "all" || c.dataset.program === f;
+        c.hidden = !show;
+        if (show) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    });
+  }
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
+  .filters[hidden] { display: none; }
+  .filter { --accent: var(--mango); min-height: 44px; padding: 0.4rem 1.1rem; font-family: var(--font-play); font-weight: 800; font-size: 1rem; color: var(--ink); background: var(--paper-raised); border: 3px solid var(--line); border-radius: 999px; box-shadow: 0 3px 0 var(--line); cursor: pointer; }
+  .filter[aria-pressed="true"] { background: var(--accent); color: #1d1b2f; transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+  .group-title { font-size: 1.8rem; font-weight: 800; color: var(--shyam); margin-bottom: 1.2rem; }
+  .past-title { margin-top: 3rem; }
+  .drives { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
+  .drive { display: flex; gap: 1rem; padding: 1.2rem; }
+  .drive[hidden] { display: none; }
+  .date { flex: none; width: 72px; height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--accent); color: #1d1b2f; border: 3px solid var(--line); border-radius: 16px; font-family: var(--font-play); line-height: 1; }
+  .day { font-size: 2rem; font-weight: 800; }
+  .month { font-weight: 700; text-transform: uppercase; }
+  .body { flex: 1; min-width: 0; }
+  .meta { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
+  h3 { font-size: 1.3rem; font-weight: 800; margin-top: 0.2rem; }
+  .place { font-size: 0.92rem; margin-top: 0.3rem; }
+  .prog { font-size: 0.85rem; font-weight: 800; color: var(--peacock); margin: 0.2rem 0 0.6rem; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.9rem; }
+  .join { min-height: 44px; padding: 0.4em 1.2em; font-size: 1rem; }
+  .full { font-weight: 800; color: var(--ink-soft); }
+  .past .drive { opacity: 0.85; }
+  .done { display: inline-block; margin-top: 0.6rem; font-weight: 800; font-size: 0.9rem; color: var(--peacock); }
+  .empty { text-align: center; padding: 2rem 1rem; }
+  .empty img { width: 240px; margin: 0 auto 1rem; }
+  @media (min-width: 768px) { .drives { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .drives { grid-template-columns: repeat(3, 1fr); } .drive { flex-direction: column; } }
+</style>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="A child with arms raised and a heart on their shirt — kindness is a superpower">
+<title>A child with arms raised and a heart on their shirt — kindness is a superpower</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ef7e87"/><stop offset="0.55" stop-color="#e63946"/><stop offset="1" stop-color="#b32c37"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#b59480"/><stop offset="0.55" stop-color="#8d5a3b"/><stop offset="1" stop-color="#6e462e"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<circle cx="160" cy="150" r="130" fill="#ffd23f" opacity="0.3" stroke="none"/>
+<ellipse cx="160" cy="302" rx="60" ry="10.799999999999999" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M128 160 C110 130 100 100 92 70" fill="none" stroke="#1d1b2f" stroke-width="21"/><path d="M128 160 C110 130 100 100 92 70" fill="none" stroke="#8d5a3b" stroke-width="13"/>
+<path d="M192 160 C210 130 220 100 228 70" fill="none" stroke="#1d1b2f" stroke-width="21"/><path d="M192 160 C210 130 220 100 228 70" fill="none" stroke="#8d5a3b" stroke-width="13"/>
+
+<path d="M146 236 L144.8 270" fill="none" stroke="#1d1b2f" stroke-width="20.8"/><path d="M146 236 L144.8 270" fill="none" stroke="#2b4c9b" stroke-width="12.8"/>
+<path d="M174 236 L175.2 270" fill="none" stroke="#1d1b2f" stroke-width="20.8"/><path d="M174 236 L175.2 270" fill="none" stroke="#2b4c9b" stroke-width="12.8"/>
+<path d="M126 242 C126 162 139.6 154 160 154 C180.4 154 194 162 194 242Z" fill="url(#g1)"/>
+<ellipse cx="145.04" cy="184.8" rx="5.6000000000000005" ry="14" transform="rotate(10 145.04 184.8)" fill="#fff" opacity="0.55" stroke="none"/>
+<circle cx="160" cy="120" r="40" fill="url(#g2)"/>
+<path d="M120.8 118 C118 74 202 74 199.2 118 C180 96 148 102 120.8 118Z" fill="#2a2140"/>
+<path d="M140.24 122.1 q5.32 -5.32 10.64 0" fill="none" stroke-width="3.5"/><path d="M169.12 122.1 q5.32 -5.32 10.64 0" fill="none" stroke-width="3.5"/>
+<path d="M151.64 135.4 q8.36 9.12 16.72 0" fill="none" stroke-width="3.5"/>
+<ellipse cx="137.96" cy="132.36" rx="5.32" ry="3.42" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<ellipse cx="182.04" cy="132.36" rx="5.32" ry="3.42" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<path d="M160 217.5 C136 202.5 146.5 184.5 160 197.25 C173.5 184.5 184 202.5 160 217.5Z" fill="#ffd23f" stroke-width="3"/>
+<path d="M80 38 Q82.16 47.84 92 50 Q82.16 52.16 80 62 Q77.84 52.16 68 50 Q77.84 47.84 80 38Z" fill="#ffd23f" stroke-width="2.5"/><path d="M240 38 Q242.16 47.84 252 50 Q242.16 52.16 240 62 Q237.84 52.16 228 50 Q237.84 47.84 240 38Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M270 191 Q271.62 198.38 279 200 Q271.62 201.62 270 209 Q268.38 201.62 261 200 Q268.38 198.38 270 191Z" fill="#ff6f91" stroke-width="2.5"/><path d="M48 181 Q49.62 188.38 57 190 Q49.62 191.62 48 199 Q46.38 191.62 39 190 Q46.38 188.38 48 181Z" fill="#3bb273" stroke-width="2.5"/>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140" role="img" aria-label="An open book">
+<title>An open book</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<path d="M14 109.5 L14 50.5 L70 60.5 L126 50.5 L126 109.5 L70 119.5Z" fill="url(#g1)"/>
+<path d="M70 56.5 C50 40.5 32 42.5 20 46.5 L20 101.5 C32 97.5 50 99.5 70 111.5Z" fill="#ffffff"/>
+<path d="M70 56.5 C90 40.5 108 42.5 120 46.5 L120 101.5 C108 97.5 90 99.5 70 111.5Z" fill="#fff4d6"/>
+<g stroke-width="2.5" opacity="0.45">
+<path d="M30 64.1 L60 67.4"/><path d="M30 75.1 L60 78.4"/><path d="M30 86.1 L54 88.85000000000001"/>
+<path d="M80 67.4 L110 64.1"/><path d="M80 78.4 L110 75.1"/>
+</g><path d="M112 19 Q113.62 26.38 121 28 Q113.62 29.62 112 37 Q110.38 29.62 103 28 Q110.38 26.38 112 19Z" fill="#ffd23f" stroke-width="2.5"/>
+</g>
+</svg>

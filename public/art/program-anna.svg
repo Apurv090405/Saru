@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280" role="img" aria-label="A shared thali with roti, dal, rice and sweets — Anna, meals">
+<title>A shared thali with roti, dal, rice and sweets — Anna, meals</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#e6e9ef"/><stop offset="0.55" stop-color="#d9dde6"/><stop offset="1" stop-color="#a9acb3"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff8e4"/><stop offset="0.55" stop-color="#fff4d6"/><stop offset="1" stop-color="#c7bea7"/></radialGradient><radialGradient id="g3" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffc16b"/><stop offset="0.55" stop-color="#ff9f1c"/><stop offset="1" stop-color="#c77c16"/></radialGradient><radialGradient id="g4" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g5" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffe282"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#c7a431"/></radialGradient><radialGradient id="g6" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#f1d1a3"/><stop offset="0.55" stop-color="#e9b872"/><stop offset="1" stop-color="#b69059"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<ellipse cx="180" cy="250" rx="140" ry="25.2" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<ellipse cx="180" cy="180" rx="140" ry="72" fill="url(#g1)"/>
+<ellipse cx="180" cy="174" rx="118" ry="58" fill="#ffffff" stroke-width="3"/>
+<ellipse cx="128" cy="170" rx="34" ry="22" fill="url(#g2)"/><circle cx="118" cy="165" r="3" fill="#ffffff" opacity="1" stroke="none"/><circle cx="134" cy="172" r="3" fill="#ffffff" opacity="1" stroke="none"/>
+<circle cx="190" cy="160" r="20" fill="url(#g3)"/>
+<circle cx="236" cy="176" r="18" fill="url(#g4)"/>
+<circle cx="186" cy="202" r="15" fill="url(#g5)"/>
+<ellipse cx="200" cy="96" rx="58" ry="22" fill="url(#g6)"/><circle cx="184" cy="92" r="3" fill="#8a5a3b" opacity="0.6" stroke="none"/><circle cx="210" cy="100" r="3" fill="#8a5a3b" opacity="0.6" stroke="none"/><circle cx="226" cy="90" r="3" fill="#8a5a3b" opacity="0.6" stroke="none"/>
+<path d="M110 70 C104 54 116 46 112 30 M130 70 C124 54 136 46 132 30" fill="none" stroke-width="3" opacity="0.5"/>
+<path d="M300 50 Q301.8 58.2 310 60 Q301.8 61.8 300 70 Q298.2 61.8 290 60 Q298.2 58.2 300 50Z" fill="#ffd23f" stroke-width="2.5"/><path d="M60 89 C44 79 51 67 60 75.5 C69 67 76 79 60 89Z" fill="#ff6f91" stroke-width="3"/>
+</g>
+</svg>

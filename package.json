@@ -1,0 +1,17 @@
+{
+  "name": "saru-trust",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Saru Charitable Trust — by Flute of the Soul",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/build-art.mjs && astro build",
+    "preview": "astro preview",
+    "art": "node scripts/build-art.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.3.5",
+    "sharp": "^0.35.5"
+  }
+}

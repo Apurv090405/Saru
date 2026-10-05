@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="240" height="200" role="img" aria-label="A shining star with a calm smile — be honest">
+<title>A shining star with a calm smile — be honest</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffe282"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#c7a431"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="120" cy="100" r="86" fill="#2b4c9b" opacity="0.25" stroke="none"/>
+<ellipse cx="120" cy="182" rx="50" ry="9" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M120 26 L141 74 L193 78 L153 112 L166 162 L120 134 L74 162 L87 112 L47 78 L99 74Z" fill="url(#g1)"/>
+<circle cx="108.6" cy="96.5" r="2.6999999999999997" fill="#1d1b2f" stroke="none"/><circle cx="131.4" cy="96.5" r="2.6999999999999997" fill="#1d1b2f" stroke="none"/>
+<path d="M113.4 107 q6.6 7.199999999999999 13.2 0" fill="none" stroke-width="3.5"/>
+<ellipse cx="102.6" cy="104.6" rx="4.2" ry="2.6999999999999997" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<ellipse cx="137.4" cy="104.6" rx="4.2" ry="2.6999999999999997" fill="#ff6f91" opacity="0.6" stroke="none"/><ellipse cx="98" cy="72" rx="8" ry="5" transform="rotate(-25 98 72)" fill="#fff" opacity="0.55" stroke="none"/>
+</g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="240" height="200" role="img" aria-label="A smiling sun — smile first">
+<title>A smiling sun — smile first</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffe282"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#c7a431"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="120" cy="100" r="86" fill="#ff9f1c" opacity="0.25" stroke="none"/>
+<path d="M182 100 L202 100" stroke="#ff9f1c" stroke-width="7"/><path d="M173.69357503463522 131 L191.01408311032398 141" stroke="#ff9f1c" stroke-width="7"/><path d="M151 153.6935750346352 L161 171.01408311032395" stroke="#ff9f1c" stroke-width="7"/><path d="M120 162 L120 182" stroke="#ff9f1c" stroke-width="7"/><path d="M89.00000000000001 153.69357503463522 L79.00000000000003 171.01408311032398" stroke="#ff9f1c" stroke-width="7"/><path d="M66.3064249653648 131 L48.98591688967602 141" stroke="#ff9f1c" stroke-width="7"/><path d="M58 100.00000000000001 L38 100.00000000000001" stroke="#ff9f1c" stroke-width="7"/><path d="M66.30642496536481 69 L48.985916889676034 58.99999999999999" stroke="#ff9f1c" stroke-width="7"/><path d="M88.99999999999997 46.30642496536481 L78.99999999999997 28.985916889676048" stroke="#ff9f1c" stroke-width="7"/><path d="M119.99999999999999 38 L119.99999999999999 18" stroke="#ff9f1c" stroke-width="7"/><path d="M151 46.306424965364805 L161 28.985916889676034" stroke="#ff9f1c" stroke-width="7"/><path d="M173.6935750346352 68.99999999999997 L191.01408311032395 58.999999999999964" stroke="#ff9f1c" stroke-width="7"/>
+<circle cx="120" cy="100" r="50" fill="url(#g1)"/><circle cx="102.52" cy="97.7" r="4.14" fill="#1d1b2f" stroke="none"/><circle cx="137.48" cy="97.7" r="4.14" fill="#1d1b2f" stroke="none"/>
+<path d="M109.88 113.8 q10.12 11.04 20.24 0" fill="none" stroke-width="3.5"/>
+<ellipse cx="93.32" cy="110.12" rx="6.44" ry="4.14" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<ellipse cx="146.68" cy="110.12" rx="6.44" ry="4.14" fill="#ff6f91" opacity="0.6" stroke="none"/>
+</g>
+</svg>

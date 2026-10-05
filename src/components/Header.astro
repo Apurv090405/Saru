@@ -1,0 +1,126 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const here = Astro.url.pathname;
+const links = [
+  { href: "/work/", label: "Our Work" },
+  { href: "/lessons/", label: "Lessons" },
+  { href: "/drives/", label: "Drives" },
+  { href: "/moments/", label: "Moments" },
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Saru Charitable Trust — home">
+      <img src="/art/feather-mark.svg" alt="" width="40" height="40" />
+      <span class="brand-text">
+        <span class="brand-name">Saru</span>
+        <span class="brand-by">by Flute of the Soul</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      {links.map((l) => <a href={l.href} aria-current={here.startsWith(l.href) ? "page" : undefined}>{l.label}</a>)}
+    </nav>
+
+    <div class="actions">
+      <ThemeToggle />
+      <a class="btn btn--give give" href="/volunteer/">Volunteer</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header?.classList.toggle("is-scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 0.7rem 0;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .site-header.is-scrolled {
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .brand-name {
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--shyam);
+  }
+  .brand-by {
+    font-family: var(--font-sacred);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .nav {
+    display: none;
+    gap: 0.25rem;
+  }
+  .nav a {
+    font-family: var(--font-play);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    transition: background-color 0.15s ease;
+  }
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    background: var(--wash-mango);
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .give {
+    display: none;
+  }
+  @media (min-width: 1000px) {
+    .nav {
+      display: flex;
+    }
+    .give {
+      display: inline-flex;
+      min-height: 44px;
+      font-size: 1rem;
+      padding: 0.5em 1.2em;
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240" role="img" aria-label="An envelope with a heart and a pen — write to us">
+<title>An envelope with a heart and a pen — write to us</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#ffffff"/><stop offset="1" stop-color="#c7c7c7"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<ellipse cx="160" cy="218" rx="120" ry="21.599999999999998" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<rect x="50" y="70" width="200" height="130" rx="12" fill="url(#g1)"/>
+<path d="M50 80 L150 150 L250 80" fill="none"/>
+<path d="M150 134.4 C124.4 118.4 135.6 99.2 150 112.8 C164.4 99.2 175.6 118.4 150 134.4Z" fill="#ff6f91" stroke-width="3"/>
+<path d="M220 200 L290 60" stroke="#ff9f1c" stroke-width="12"/><path d="M220 200 L290 60" stroke-width="3" fill="none"/>
+<path d="M216 210 L222 194 L232 199Z" fill="#1d1b2f"/>
+<path d="M80 30 Q81.8 38.2 90 40 Q81.8 41.8 80 50 Q78.2 41.8 70 40 Q78.2 38.2 80 30Z" fill="#ffd23f" stroke-width="2.5"/><path d="M270 22 Q271.44 28.56 278 30 Q271.44 31.44 270 38 Q268.56 31.44 262 30 Q268.56 28.56 270 22Z" fill="#5ec8f2" stroke-width="2.5"/>
+</g>
+</svg>

@@ -1,0 +1,845 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Toran from "../components/Toran.astro";
+import Wave from "../components/Wave.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { impact, programs, lessons, drives, moments } from "../data/home.js";
+
+const fmtDate = (iso) => {
+  const d = new Date(iso + "T00:00:00");
+  return {
+    day: d.toLocaleDateString("en-IN", { day: "2-digit" }),
+    month: d.toLocaleDateString("en-IN", { month: "short" }),
+    weekday: d.toLocaleDateString("en-IN", { weekday: "long" }),
+  };
+};
+---
+
+<BaseLayout>
+  <!-- ============================================================ HERO -->
+  <section class="hero">
+    <Toran />
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow reveal">
+          <span>Saru Charitable Trust</span>
+          <span class="by">by Flute of the Soul</span>
+        </p>
+        <h1 class="hero-title reveal">
+          A handful shared becomes a <span class="crayon">smile</span>.
+        </h1>
+        <p class="hero-lede reveal">
+          We bring celebrations, learning and belonging to children who are
+          growing up without a family. Not with grand gifts: just a small
+          part of what each of us has today.
+        </p>
+        <p class="hero-note reveal">
+          Sudama brought Krishna one handful of poha. It was received like a
+          treasure.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn--give" href="/volunteer/">Volunteer with us</a>
+          <a class="btn btn--ghost" href="/work/">See our work</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-blob" aria-hidden="true"></div>
+        <img
+          class="art float"
+          src="/art/hero-sharing.svg"
+          alt="Little Kanha shares a pot of butter with two children under a kadamba tree"
+          width="640"
+          height="540"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Wave from="var(--paper)" to="var(--wash-mango)" />
+
+  <!-- ===================================================== WHAT SARU MEANS -->
+  <section class="section section--mango">
+    <div class="wrap meaning">
+      <img class="art meaning-art float float--slow reveal" src="/art/saru-diya.svg" alt="A lit diya resting on a lotus" width="360" height="300" loading="lazy" />
+      <div class="meaning-copy reveal">
+        <p class="meaning-word" lang="gu">સારું</p>
+        <p class="meaning-roman">Saru · <em>simply, good</em></p>
+        <p class="meaning-text">
+          In Gujarati, <strong>saru</strong> is what you say when something
+          feels right. That is all we want for every child we meet: a day that
+          feels <em>saru</em>. A full plate, a lesson learned, a friend who
+          stays, a reason to laugh.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="var(--wash-mango)" to="var(--paper)" flip />
+
+  <!-- ============================================================ IMPACT -->
+  <section class="section">
+    <div class="wrap">
+      <SectionHead
+        eyebrow="What a handful does"
+        title="Small hands, <span class='crayon' style='--crayon:var(--sky)'>big numbers</span>"
+        center
+        color="var(--sky)"
+      />
+      <ul class="impact" role="list">
+        {impact.items.map((i) => (
+          <li class="sticker impact-item reveal">
+            <img class="art" src={`/art/${i.art}.svg`} alt="" width="88" height="88" loading="lazy" />
+            <p class="impact-value">
+              <span class="count" data-to={i.value}>{i.value.toLocaleString("en-IN")}</span>{i.suffix}
+            </p>
+            <p class="impact-label">{i.label}</p>
+          </li>
+        ))}
+      </ul>
+      {impact.placeholder && <p class="sample-note">Sample figures, to be replaced with real counts before launch.</p>}
+    </div>
+  </section>
+
+  <!-- ========================================================== PROGRAMS -->
+  <section class="section section--sky">
+    <div class="wrap">
+      <SectionHead
+        eyebrow="Our work"
+        title="Four ways we <span class='crayon' style='--crayon:var(--lotus)'>show up</span>"
+        sub="Each program has its own colour, so the children know them by sight."
+        color="var(--lotus)"
+      />
+      <div class="programs">
+        {programs.map((p) => (
+          <a class="sticker program reveal" href={`/work/${p.slug}/`} style={`--accent:${p.color};--wash:${p.wash}`}>
+            <div class="program-art">
+              <img class="art" src={`/art/${p.art}.svg`} alt={p.alt} width="360" height="280" loading="lazy" />
+            </div>
+            <div class="program-body">
+              <p class="program-tag">{p.meaning}</p>
+              <h3>{p.name}</h3>
+              <p>{p.text}</p>
+              <span class="program-more">See how <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="var(--wash-sky)" to="var(--paper)" />
+
+  <!-- ========================================================== LESSONS -->
+  <section class="section">
+    <div class="wrap">
+      <SectionHead
+        eyebrow="The lessons wall"
+        title="What we learn <span class='crayon'>together</span>"
+        sub="Eight small values we practise with the children, one drawing at a time. Download any card and share it."
+        center
+        color="var(--mango)"
+      />
+      <ul class="lessons" role="list">
+        {lessons.map((l, i) => (
+          <li class="sticker lesson reveal" style={`--accent:${l.color}`}>
+            <span class="lesson-num">{i + 1}</span>
+            <img class="art" src={`/art/lesson-${l.slug}.svg`} alt="" width="240" height="200" loading="lazy" />
+            <h3>{l.title}</h3>
+            <p>{l.line}</p>
+            <a class="lesson-dl" href={`/art/lesson-${l.slug}@2x.png`} download>
+              Save card<span class="sr-only"> for “{l.title}”</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================== SHLOKA -->
+  <section class="section shloka-section">
+    <div class="wrap shloka reveal">
+      <img class="art shloka-art float" src="/art/flute.svg" alt="A bansuri flute with a peacock feather and music notes" width="420" height="160" loading="lazy" />
+      <blockquote>
+        <p class="shloka-sa" lang="sa">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन</p>
+        <p class="shloka-tr">karmaṇy-evādhikāras te mā phaleṣu kadācana</p>
+        <p class="shloka-en">“Your right is to the work alone, never to its fruits.”</p>
+        <footer>Bhagavad Gita 2.47</footer>
+      </blockquote>
+      <p class="shloka-why">
+        So we keep showing up. We don't count the smiles to be thanked. We count
+        them so we can share more.
+      </p>
+    </div>
+  </section>
+
+  <Wave from="var(--paper)" to="var(--wash-parrot)" />
+
+  <!-- ============================================================ DRIVES -->
+  <section class="section section--parrot">
+    <div class="wrap">
+      <div class="drives-head">
+        <SectionHead
+          eyebrow="Upcoming drives"
+          title="Come along, <span class='crayon' style='--crayon:var(--parrot)'>this Sunday</span>"
+          sub="Pick a drive, pick a role. No experience needed, just a warm heart and two free hours."
+          color="var(--parrot)"
+        />
+        <img class="art drives-art float" src="/art/drive-van.svg" alt="A volunteer van decorated with a marigold toran" width="380" height="240" loading="lazy" />
+      </div>
+      <ul class="drives" role="list">
+        {drives.items.map((d) => {
+          const f = fmtDate(d.date);
+          return (
+            <li class="sticker drive reveal" style={`--accent:${d.color}`}>
+              <div class="drive-date">
+                <span class="day">{f.day}</span>
+                <span class="month">{f.month}</span>
+              </div>
+              <div class="drive-body">
+                <p class="drive-weekday">{f.weekday}{drives.placeholder && <span class="sample-tag">sample</span>}</p>
+                <h3>{d.title}</h3>
+                <p class="drive-place">📍 {d.place}</p>
+                <ul class="drive-roles" role="list">
+                  {d.roles.map((r) => <li>{r}</li>)}
+                </ul>
+                <div class="drive-foot">
+                  <span class="drive-spots"><strong>{d.spots}</strong> spots left</span>
+                  <a class="btn btn--mango drive-join" href={`/volunteer/?drive=${d.slug}`}>Join<span class="sr-only"> {d.title}</span></a>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <Wave from="var(--wash-parrot)" to="var(--paper)" flip />
+
+  <!-- ========================================================= VOLUNTEER -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sticker volunteer reveal">
+        <img class="art volunteer-art float" src="/art/kindness-hero.svg" alt="A child with arms raised and a heart on their shirt" width="320" height="320" loading="lazy" />
+        <div class="volunteer-copy">
+          <p class="volunteer-kicker">No cape needed</p>
+          <h2>Kindness is a <span class="crayon" style="--crayon:var(--lotus)">superpower</span>.</h2>
+          <p>
+            Teach a class, cook a meal, take photos, design a poster, drive the
+            van, or simply sit and listen. Every role matters, and so does
+            yours.
+          </p>
+          <ul class="roles" role="list">
+            {["Teach", "Celebrate", "Click", "Cook", "Drive", "Design"].map((r) => <li>{r}</li>)}
+          </ul>
+          <a class="btn" href="/volunteer/">Become a volunteer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== MOMENTS -->
+  <section class="section moments-section">
+    <div class="wrap">
+      <SectionHead eyebrow="Moments" title="Little memories" color="var(--marigold)" />
+    </div>
+    <ul class="moments" role="list">
+      {moments.map((m, i) => (
+        <li class="polaroid" style={`--tilt:${i % 2 ? 2.5 : -2.5}deg`}>
+          <img class="art" src={`/art/${m.art}.svg`} alt="" loading="lazy" />
+          <p>{m.caption}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="wrap moments-note">
+      To keep every child safe, we share illustrations here instead of photos of
+      the children.
+    </p>
+  </section>
+
+  <Wave from="var(--paper)" to="var(--footer)" flip />
+</BaseLayout>
+
+<script>
+  // Count the impact numbers up when they come into view.
+  if (document.documentElement.classList.contains("js")) {
+    const els = document.querySelectorAll<HTMLElement>(".count");
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        io.unobserve(e.target);
+        const el = e.target as HTMLElement;
+        const to = Number(el.dataset.to);
+        const start = performance.now();
+        const tick = (t: number) => {
+          const p = Math.min(1, (t - start) / 1400);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(to * eased).toLocaleString("en-IN");
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.6 });
+    els.forEach((el) => {
+      el.textContent = "0";
+      io.observe(el);
+    });
+  }
+</script>
+
+<style>
+  /* -------------------------------------------------------------- hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: clamp(2rem, 6vw, 4rem);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(40% 50% at 15% 30%, color-mix(in srgb, var(--sky) 22%, transparent), transparent 70%),
+      radial-gradient(40% 45% at 85% 25%, color-mix(in srgb, var(--mango) 30%, transparent), transparent 70%);
+  }
+  .hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding-top: clamp(1.5rem, 4vw, 3rem);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: 0.95rem;
+    background: var(--paper-raised);
+    border: 3px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    box-shadow: 0 3px 0 var(--line);
+  }
+  .hero-eyebrow .by {
+    font-family: var(--font-sacred);
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+  .hero-title {
+    margin-top: 1.2rem;
+    font-size: clamp(2.5rem, 7.5vw, 4.8rem);
+    font-weight: 800;
+    color: var(--shyam);
+    letter-spacing: -0.01em;
+  }
+  .hero-title .crayon {
+    --crayon: var(--marigold);
+  }
+  .hero-lede {
+    margin-top: 1.2rem;
+    font-size: clamp(1.08rem, 2vw, 1.3rem);
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+  .hero-note {
+    margin-top: 1.2rem;
+    font-family: var(--font-sacred);
+    color: var(--ink-soft);
+    max-width: 30rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--gold);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.8rem;
+  }
+  .hero-art {
+    position: relative;
+  }
+  .hero-blob {
+    position: absolute;
+    inset: 4% 2% 2% 2%;
+    background: var(--paper-raised);
+    border: 3px solid var(--line);
+    border-radius: 58% 42% 46% 54% / 48% 56% 44% 52%;
+    box-shadow: 8px 8px 0 var(--line);
+  }
+  .hero-art img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 6%;
+  }
+
+  /* ----------------------------------------------------------- meaning */
+  .meaning {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .meaning-art {
+    width: min(320px, 80%);
+    margin: 0 auto;
+  }
+  .meaning-word {
+    font-family: "Baloo Bhai 2", var(--font-play);
+    font-weight: 800;
+    font-size: clamp(3.5rem, 12vw, 6rem);
+    line-height: 1;
+    color: var(--shyam);
+  }
+  .meaning-roman {
+    font-family: var(--font-sacred);
+    font-size: 1.3rem;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+  }
+  .meaning-text {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    max-width: 36rem;
+  }
+
+  /* ------------------------------------------------------------ impact */
+  .impact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .impact-item {
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+  .impact-item img {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+  }
+  .impact-value {
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--shyam);
+    line-height: 1.1;
+    margin-top: 0.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .impact-label {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+  }
+  .sample-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .sample-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 2px dashed currentColor;
+    border-radius: 6px;
+    vertical-align: middle;
+    opacity: 0.7;
+  }
+
+  /* ---------------------------------------------------------- programs */
+  .programs {
+    display: grid;
+    gap: 1.6rem;
+  }
+  .program {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  .program-art {
+    background: var(--wash);
+    border-bottom: 3px solid var(--line);
+    padding: 1rem;
+  }
+  .program-art img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .program-body {
+    padding: 1.2rem 1.4rem 1.5rem;
+  }
+  .program-tag {
+    display: inline-block;
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #1d1b2f;
+    background: var(--accent);
+    border: 2.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.05rem 0.7rem;
+  }
+  .program h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+    color: var(--shyam);
+  }
+  .program-body > p:not(.program-tag) {
+    margin-top: 0.4rem;
+    color: var(--ink-soft);
+  }
+  .program-more {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-family: var(--font-play);
+    font-weight: 800;
+  }
+  .program:hover .program-more span {
+    display: inline-block;
+    transform: translateX(4px);
+  }
+
+  /* ----------------------------------------------------------- lessons */
+  .lessons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .lesson {
+    position: relative;
+    padding: 0.9rem 0.9rem 1.1rem;
+    text-align: center;
+    border-top: 10px solid var(--accent);
+  }
+  .lesson-num {
+    position: absolute;
+    top: -16px;
+    left: -10px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-play);
+    font-weight: 800;
+    background: var(--mango);
+    color: #1d1b2f;
+    border: 3px solid var(--line);
+    border-radius: 50%;
+  }
+  .lesson img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .lesson h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-top: 0.3rem;
+  }
+  .lesson p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+  .lesson-dl {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.35rem 0.8rem;
+    min-height: 32px;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .lesson-dl:hover {
+    background: var(--wash-mango);
+  }
+
+  /* ------------------------------------------------------------ shloka */
+  .shloka {
+    text-align: center;
+    max-width: 46rem;
+  }
+  .shloka-art {
+    width: min(320px, 80%);
+    margin: 0 auto 1.5rem;
+  }
+  blockquote {
+    margin: 0;
+  }
+  .shloka-sa {
+    font-family: var(--font-sanskrit);
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    line-height: 1.4;
+    color: var(--shyam);
+  }
+  .shloka-tr {
+    font-family: var(--font-sacred);
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 0.6rem;
+  }
+  .shloka-en {
+    font-family: var(--font-sacred);
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    margin-top: 1rem;
+  }
+  blockquote footer {
+    margin-top: 0.6rem;
+    font-family: var(--font-play);
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .shloka-why {
+    margin: 1.5rem auto 0;
+    max-width: 32rem;
+    color: var(--ink-soft);
+  }
+
+  /* ------------------------------------------------------------ drives */
+  .drives-head {
+    display: grid;
+    align-items: end;
+  }
+  .drives-art {
+    width: min(260px, 70%);
+    justify-self: end;
+    margin: -1rem 0 1.5rem;
+  }
+  .drives {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.4rem;
+  }
+  .drive {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+  .drive-date {
+    flex: none;
+    width: 72px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border: 3px solid var(--line);
+    border-radius: 16px;
+    color: #1d1b2f;
+    font-family: var(--font-play);
+    line-height: 1;
+  }
+  .day {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .month {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .drive-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .drive-weekday {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .drive h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top: 0.2rem;
+  }
+  .drive-place {
+    font-size: 0.92rem;
+    margin-top: 0.3rem;
+  }
+  .drive-roles,
+  .roles {
+    list-style: none;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .drive-roles li,
+  .roles li {
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.1rem 0.6rem;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+  }
+  .drive-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+  }
+  .drive-spots {
+    font-size: 0.9rem;
+  }
+  .drive-join {
+    min-height: 44px;
+    padding: 0.4em 1.2em;
+    font-size: 1rem;
+  }
+
+  /* --------------------------------------------------------- volunteer */
+  .volunteer {
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.4rem, 4vw, 2.5rem);
+    background: var(--wash-mango);
+    transform: none !important;
+  }
+  .volunteer-art {
+    width: min(260px, 75%);
+    margin: 0 auto;
+  }
+  .volunteer-kicker {
+    font-family: var(--font-play);
+    font-weight: 800;
+    color: var(--kumkum);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  :global([data-theme="dark"]) .volunteer-kicker {
+    color: var(--lotus);
+  }
+  .volunteer h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--shyam);
+    margin-top: 0.3rem;
+  }
+  .volunteer-copy > p:not(.volunteer-kicker) {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+  .volunteer .roles {
+    margin: 1rem 0 1.4rem;
+  }
+
+  /* ----------------------------------------------------------- moments */
+  .moments-section {
+    overflow: hidden;
+  }
+  .moments {
+    list-style: none;
+    margin: 0;
+    padding: 1rem var(--gutter) 1.5rem;
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .moments::-webkit-scrollbar {
+    display: none;
+  }
+  .polaroid {
+    flex: none;
+    width: 220px;
+    scroll-snap-align: center;
+    background: #ffffff;
+    color: #1d1b2f;
+    padding: 0.7rem 0.7rem 0.9rem;
+    border: 3px solid var(--line);
+    box-shadow: 5px 5px 0 var(--line);
+    transform: rotate(var(--tilt));
+    transition: transform 0.25s ease;
+  }
+  .polaroid:hover {
+    transform: rotate(0) scale(1.03);
+  }
+  .polaroid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #fff3c4;
+  }
+  .polaroid p {
+    font-family: var(--font-play);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .moments-note {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-top: 0.5rem;
+  }
+
+  /* ------------------------------------------------------------ larger */
+  @media (min-width: 640px) {
+    .impact {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .programs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .lessons {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (min-width: 768px) {
+    .meaning {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .volunteer {
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+    }
+    .drives-head {
+      grid-template-columns: 1fr auto;
+    }
+    .drives-art {
+      margin: 0 0 1.5rem;
+    }
+  }
+  @media (min-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1.05fr 1fr;
+    }
+    .drives {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .drive {
+      flex-direction: column;
+    }
+    .programs {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

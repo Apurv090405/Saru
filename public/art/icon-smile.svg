@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140" role="img" aria-label="A smiling face">
+<title>A smiling face</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffe282"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#c7a431"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<circle cx="70" cy="70" r="52" fill="url(#g1)"/><ellipse cx="50" cy="45" rx="10" ry="6" transform="rotate(-25 50 45)" fill="#fff" opacity="0.55" stroke="none"/>
+<circle cx="52" cy="62" r="5" fill="#1d1b2f" stroke="none"/><circle cx="88" cy="62" r="5" fill="#1d1b2f" stroke="none"/>
+<path d="M44 82 Q70 108 96 82" fill="#ffffff"/>
+<ellipse cx="38" cy="80" rx="7" ry="4" fill="#ff6f91" opacity="0.7" stroke="none"/><ellipse cx="102" cy="80" rx="7" ry="4" fill="#ff6f91" opacity="0.7" stroke="none"/>
+</g>
+</svg>

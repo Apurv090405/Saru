@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Wave from "../components/Wave.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { reports, contact } from "../data/site.js";
+
+const promises = [
+  "Every rupee is recorded and audited every year.",
+  "Admin costs are kept small, so most of every gift reaches the children.",
+  "Reports are published here, for anyone to read.",
+  "Children's identities are never shared, in reports or anywhere else.",
+];
+---
+
+<BaseLayout title="Transparency — Saru Charitable Trust" description="How Saru uses every rupee: spending by program, annual reports and registration details.">
+  <PageHero
+    eyebrow="Transparency"
+    title="Every rupee, <span class='crayon' style='--crayon:var(--sky)'>out in the open</span>"
+    sub="Trust is built in small, honest steps. Here is where the money goes and how we are accountable."
+    art="saru-diya"
+    artAlt="A lit diya resting on a lotus"
+    color="var(--sky)"
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-shyam)" />
+  <section class="section section--shyam">
+    <div class="wrap two">
+      <div class="reveal">
+        <SectionHead eyebrow="Where it goes" title="How we spend" color="var(--shyam)" />
+        {reports.placeholder && <p class="note">Sample split, to be replaced with audited figures.</p>}
+        <ul class="bars" role="list">
+          {reports.spend.map((s) => (
+            <li>
+              <div class="bar-label"><span>{s.label}</span><strong>{s.pct}%</strong></div>
+              <div class="bar-track"><div class="bar-fill" style={`width:${s.pct}%;--c:${s.color}`}></div></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="sticker promises reveal">
+        <img class="art" src="/art/lesson-be-honest.svg" alt="" loading="lazy" />
+        <h3>Our promises</h3>
+        <ul class="ticks" style="--tick:var(--mango)">{promises.map((p) => <li>{p}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+  <Wave from="var(--wash-shyam)" to="var(--paper)" flip />
+
+  <section class="section">
+    <div class="wrap two">
+      <div class="reveal">
+        <SectionHead eyebrow="Reports" title="Annual reports" color="var(--marigold)" />
+        <ul class="files" role="list">
+          {reports.files.map((f) => (
+            <li class="sticker file">
+              <span class="file-icon" aria-hidden="true">📄</span>
+              <div><strong>{f.title}</strong><span>{f.year}</span></div>
+              <span class="soon">Coming soon</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <SectionHead eyebrow="Registration" title="Who we are, officially" color="var(--parrot)" />
+        <dl class="reg">
+          <div><dt>Trust</dt><dd>{contact.registration.trust}</dd></div>
+          <div><dt>PAN</dt><dd>{contact.registration.pan}</dd></div>
+          <div><dt>12A</dt><dd>{contact.registration.a12}</dd></div>
+          <div><dt>CSR-1</dt><dd>{contact.registration.csr}</dd></div>
+        </dl>
+        <p class="ask">Questions about our accounts? <a href="/contact/">Ask us anything</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .two { display: grid; gap: 2.5rem; align-items: start; }
+  .note { font-size: 0.85rem; color: var(--ink-soft); margin: -1.5rem 0 1.2rem; }
+  .bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+  .bar-label { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 0.3rem; }
+  .bar-track { height: 26px; background: var(--paper-raised); border: 3px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--c); border-right: 3px solid var(--line); }
+  .promises { padding: 1.6rem; }
+  .promises img { width: 130px; }
+  .promises h3 { font-size: 1.8rem; font-weight: 800; color: var(--shyam); margin: 0.4rem 0 0.8rem; }
+  .files { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  .file { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; }
+  .file-icon { font-size: 1.8rem; }
+  .file div { flex: 1; display: grid; }
+  .file div span { font-size: 0.9rem; color: var(--ink-soft); }
+  .soon { font-size: 0.8rem; font-weight: 800; padding: 0.15rem 0.6rem; border: 2px dashed var(--ink-soft); border-radius: 999px; }
+  .reg { margin: 0; display: grid; gap: 0.9rem; }
+  .reg dt { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+  .reg dd { margin: 0; font-family: var(--font-play); font-weight: 700; font-size: 1.15rem; }
+  .ask { margin-top: 1.5rem; }
+  @media (min-width: 900px) { .two { grid-template-columns: 1.1fr 0.9fr; } }
+</style>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" width="200" height="180" role="img" aria-label="A camera — click photos">
+<title>A camera — click photos</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#758bbe"/><stop offset="0.55" stop-color="#2b4c9b"/><stop offset="1" stop-color="#223b79"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#96dbf7"/><stop offset="0.55" stop-color="#5ec8f2"/><stop offset="1" stop-color="#499cbd"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="100" cy="92" r="76" fill="#5ec8f2" opacity="0.25" stroke="none"/>
+<ellipse cx="100" cy="160" rx="64" ry="11.52" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<rect x="40" y="62" width="120" height="84" rx="14" fill="url(#g1)"/>
+<path d="M76 62 L84 46 L116 46 L124 62" fill="#2b4c9b"/>
+<circle cx="100" cy="104" r="28" fill="#ffffff"/>
+<circle cx="100" cy="104" r="18" fill="url(#g2)"/><ellipse cx="94" cy="97" rx="5" ry="3" transform="rotate(-25 94 97)" fill="#fff" opacity="0.55" stroke="none"/>
+<rect x="134" y="72" width="14" height="9" rx="3" fill="#ffd23f" stroke-width="2.5"/>
+<path d="M160 49 C144 39 151 27 160 35.5 C169 27 176 39 160 49Z" fill="#ff6f91" stroke-width="3"/>
+</g>
+</svg>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  center?: boolean;
+  color?: string;
+}
+const { eyebrow, title, sub, center = false, color = "var(--peacock)" } = Astro.props;
+---
+
+<div class:list={["head reveal", { center }]} style={`--eyebrow:${color}`}>
+  <p class="eyebrow"><span class="dot"></span>{eyebrow}</p>
+  <h2 set:html={title} />
+  {sub && <p class="sub">{sub}</p>}
+</div>
+
+<style>
+  .head {
+    max-width: 44rem;
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+  .center {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .center .eyebrow {
+    justify-content: center;
+  }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--eyebrow);
+    border: 2.5px solid var(--line);
+    flex: none;
+  }
+  h2 {
+    margin-top: 0.6rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--shyam);
+  }
+  .sub {
+    margin-top: 0.9rem;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--ink-soft);
+  }
+</style>

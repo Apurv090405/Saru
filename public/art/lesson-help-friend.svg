@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="240" height="200" role="img" aria-label="Two children sharing one umbrella in the rain — help a friend">
+<title>Two children sharing one umbrella in the rain — help a friend</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffc16b"/><stop offset="0.55" stop-color="#ff9f1c"/><stop offset="1" stop-color="#c77c16"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g3" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#b59480"/><stop offset="0.55" stop-color="#8d5a3b"/><stop offset="1" stop-color="#6e462e"/></radialGradient><radialGradient id="g4" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffa1b8"/><stop offset="0.55" stop-color="#ff6f91"/><stop offset="1" stop-color="#c75771"/></radialGradient><radialGradient id="g5" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ebc6a9"/><stop offset="0.55" stop-color="#e0a77a"/><stop offset="1" stop-color="#af825f"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="120" cy="100" r="86" fill="#5ec8f2" opacity="0.25" stroke="none"/>
+<ellipse cx="120" cy="186" rx="70" ry="12.6" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M40 40 q-6 12 0 16 q6 -4 0 -16Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M70 20 q-6 12 0 16 q6 -4 0 -16Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M190 30 q-6 12 0 16 q6 -4 0 -16Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M210 70 q-6 12 0 16 q6 -4 0 -16Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M30 100 q-6 12 0 16 q6 -4 0 -16Z" fill="#5ec8f2" stroke-width="2.5"/>
+<path d="M120 52 L120 126" stroke-width="5"/>
+<path d="M44 92 Q50 38 120 34 Q190 38 196 92 Q178 80 160 92 Q140 80 120 92 Q100 80 80 92 Q62 80 44 92Z" fill="url(#g1)"/>
+
+<path d="M85 183 L84.4 203" fill="none" stroke="#1d1b2f" stroke-width="14.4"/><path d="M85 183 L84.4 203" fill="none" stroke="#2b4c9b" stroke-width="6.4"/>
+<path d="M99 183 L99.6 203" fill="none" stroke="#1d1b2f" stroke-width="14.4"/><path d="M99 183 L99.6 203" fill="none" stroke="#2b4c9b" stroke-width="6.4"/>
+<path d="M75 189 C75 149 81.8 145 92 145 C102.2 145 109 149 109 189Z" fill="url(#g2)"/>
+<ellipse cx="84.52" cy="160.4" rx="2.8000000000000003" ry="7" transform="rotate(10 84.52 160.4)" fill="#fff" opacity="0.55" stroke="none"/>
+<circle cx="92" cy="128" r="20" fill="url(#g3)"/>
+<path d="M72.4 127 C71 105 113 105 111.6 127 C102 116 86 119 72.4 127Z" fill="#2a2140"/>
+<path d="M82.12 129.05 q2.66 -2.66 5.32 0" fill="none" stroke-width="3.5"/><path d="M96.56 129.05 q2.66 -2.66 5.32 0" fill="none" stroke-width="3.5"/>
+<path d="M87.82 135.7 q4.18 4.56 8.36 0" fill="none" stroke-width="3.5"/>
+<ellipse cx="80.98" cy="134.18" rx="2.66" ry="1.71" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<ellipse cx="103.02" cy="134.18" rx="2.66" ry="1.71" fill="#ff6f91" opacity="0.6" stroke="none"/>
+
+<path d="M141 183 L140.4 203" fill="none" stroke="#1d1b2f" stroke-width="14.4"/><path d="M141 183 L140.4 203" fill="none" stroke="#0f7a6e" stroke-width="6.4"/>
+<path d="M155 183 L155.6 203" fill="none" stroke="#1d1b2f" stroke-width="14.4"/><path d="M155 183 L155.6 203" fill="none" stroke="#0f7a6e" stroke-width="6.4"/>
+<path d="M131 189 C131 149 137.8 145 148 145 C158.2 145 165 149 165 189Z" fill="url(#g4)"/>
+<ellipse cx="140.52" cy="160.4" rx="2.8000000000000003" ry="7" transform="rotate(10 140.52 160.4)" fill="#fff" opacity="0.55" stroke="none"/>
+<circle cx="148" cy="128" r="20" fill="url(#g5)"/>
+<circle cx="127" cy="121" r="6.4" fill="#2a2140"/><circle cx="169" cy="121" r="6.4" fill="#2a2140"/><path d="M128.4 128 C127 105 169 105 167.6 128 C156 117 140 117 128.4 128Z" fill="#2a2140"/>
+<path d="M138.12 129.05 q2.66 -2.66 5.32 0" fill="none" stroke-width="3.5"/><path d="M152.56 129.05 q2.66 -2.66 5.32 0" fill="none" stroke-width="3.5"/>
+<path d="M143.82 135.7 q4.18 4.56 8.36 0" fill="none" stroke-width="3.5"/>
+<ellipse cx="136.98" cy="134.18" rx="2.66" ry="1.71" fill="#ff6f91" opacity="0.6" stroke="none"/>
+<ellipse cx="159.02" cy="134.18" rx="2.66" ry="1.71" fill="#ff6f91" opacity="0.6" stroke="none"/>
+</g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300" role="img" aria-label="Sudama's small cloth bundle of poha, with stars rising out of it">
+<title>Sudama's small cloth bundle of poha, with stars rising out of it</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff8e4"/><stop offset="0.55" stop-color="#fff4d6"/><stop offset="1" stop-color="#c7bea7"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff8e4"/><stop offset="0.55" stop-color="#fff4d6"/><stop offset="1" stop-color="#c7bea7"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<ellipse cx="160" cy="270" rx="90" ry="16.2" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M80 250 C60 200 80 150 130 140 L190 140 C240 150 260 200 240 250 Q160 278 80 250Z" fill="url(#g1)"/>
+<path d="M130 140 C120 120 126 104 142 108 L160 124 L178 108 C194 104 200 120 190 140Z" fill="url(#g2)"/>
+<path d="M126 142 Q160 152 194 142" fill="none" stroke="#e63946" stroke-width="7"/>
+<circle cx="118" cy="210" r="5" fill="#e9c99a" opacity="1" stroke="none"/><circle cx="150" cy="228" r="5" fill="#e9c99a" opacity="1" stroke="none"/><circle cx="196" cy="214" r="5" fill="#e9c99a" opacity="1" stroke="none"/><circle cx="176" cy="238" r="5" fill="#e9c99a" opacity="1" stroke="none"/>
+<ellipse cx="110" cy="190" rx="10" ry="20" transform="rotate(-25 110 190)" fill="#fff" opacity="0.55" stroke="none"/>
+<path d="M160 56 Q162.52 67.48 174 70 Q162.52 72.52 160 84 Q157.48 72.52 146 70 Q157.48 67.48 160 56Z" fill="#ffd23f" stroke-width="2.5"/><path d="M110 30 Q111.8 38.2 120 40 Q111.8 41.8 110 50 Q108.2 41.8 100 40 Q108.2 38.2 110 30Z" fill="#ff9f1c" stroke-width="2.5"/><path d="M214 39 Q215.98 48.02 225 50 Q215.98 51.98 214 61 Q212.02 51.98 203 50 Q212.02 48.02 214 39Z" fill="#ff6f91" stroke-width="2.5"/><path d="M250 92 Q251.44 98.56 258 100 Q251.44 101.44 250 108 Q248.56 101.44 242 100 Q248.56 98.56 250 92Z" fill="#5ec8f2" stroke-width="2.5"/><path d="M70 82 Q71.44 88.56 78 90 Q71.44 91.44 70 98 Q68.56 91.44 62 90 Q68.56 88.56 70 82Z" fill="#3bb273" stroke-width="2.5"/>
+<path d="M160 30.1 C145.6 21.1 151.9 10.299999999999999 160 17.95 C168.1 10.299999999999999 174.4 21.1 160 30.1Z" fill="#ff6f91" stroke-width="3"/>
+</g>
+</svg>

@@ -1,0 +1,29 @@
+---
+// The closing invitation at the bottom of inner pages.
+interface Props {
+  title?: string;
+  text?: string;
+  art?: string;
+}
+const {
+  title = "Two free hours can make a whole day <span class='crayon'>saru</span>.",
+  text = "Join the next drive. No experience needed, just a warm heart.",
+  art = "kindness-hero",
+} = Astro.props;
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="sticker cta-band reveal" style="transform:none">
+      <img class="art float" src={`/art/${art}.svg`} alt="" loading="lazy" />
+      <div>
+        <h2 set:html={title} />
+        <p>{text}</p>
+        <div class="cta-actions">
+          <a class="btn btn--give" href="/volunteer/">Volunteer with us</a>
+          <a class="btn btn--ghost" href="/drives/">See upcoming drives</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

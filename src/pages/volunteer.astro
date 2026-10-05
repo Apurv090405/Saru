@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Wave from "../components/Wave.astro";
+import { roles, drives, programs, contact, fmtDate } from "../data/site.js";
+
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = drives.items.filter((d) => d.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+const conduct = [
+  "Never take or share photos of a child's face.",
+  "Never meet a child alone, or outside a drive.",
+  "Use the children's first names only; never share where they live.",
+  "Be on time, and tell us early if you can't come.",
+  "Kindness first, always: to the children, the staff and each other.",
+];
+---
+
+<BaseLayout title="Volunteer — Saru Charitable Trust" description="Join a Saru drive in Ahmedabad: teach, celebrate, cook, click, drive or design.">
+  <PageHero
+    eyebrow="Volunteer"
+    title="Kindness is a <span class='crayon' style='--crayon:var(--lotus)'>superpower</span>."
+    sub="No cape needed. Pick a role that fits you, join a drive, and give two hours of your Sunday."
+    art="kindness-hero"
+    artAlt="A child with arms raised and a heart on their shirt"
+    color="var(--lotus)"
+  >
+    <a class="btn btn--give hero-btn" href="#signup">Sign up now</a>
+  </PageHero>
+
+  <Wave from="var(--paper)" to="var(--wash-sky)" />
+  <section class="section section--sky">
+    <div class="wrap">
+      <SectionHead eyebrow="Pick a role" title="Six ways to help" color="var(--sky)" center />
+      <ul class="roles" role="list">
+        {roles.map((r) => (
+          <li class="sticker role reveal">
+            <img class="art" src={`/art/role-${r.slug}.svg`} alt="" loading="lazy" />
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+            <span class="chip">{r.time}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <Wave from="var(--wash-sky)" to="var(--paper)" flip />
+
+  <section class="section">
+    <div class="wrap two">
+      <div class="reveal">
+        <SectionHead eyebrow="Our promise to the children" title="Code of conduct" color="var(--kumkum)" />
+        <ul class="ticks" style="--tick:var(--lotus)">{conduct.map((c) => <li>{c}</li>)}</ul>
+      </div>
+
+      <!-- Three-step form. No backend: on submit it opens the visitor's email
+           app with everything filled in, addressed to the trust. -->
+      <form class="sticker form" id="signup" style="transform:none" novalidate>
+        <ol class="progress" aria-hidden="true"><li class="on">1</li><li>2</li><li>3</li></ol>
+
+        <fieldset data-step="1">
+          <legend>About you</legend>
+          <label>Your name<input name="name" required autocomplete="name" /></label>
+          <label>Phone or WhatsApp<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" /></label>
+          <label>Area in Ahmedabad<input name="area" /></label>
+        </fieldset>
+
+        <fieldset data-step="2" hidden>
+          <legend>How you'd like to help</legend>
+          <p class="hint">Pick as many roles as you like.</p>
+          <div class="checks">
+            {roles.map((r) => (
+              <label class="check"><input type="checkbox" name="roles" value={r.title} /> {r.title}</label>
+            ))}
+          </div>
+          <label>Program you love most
+            <select name="program">
+              <option value="">Any program</option>
+              {programs.map((p) => <option value={p.slug}>{p.name} · {p.meaning}</option>)}
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset data-step="3" hidden>
+          <legend>When you can come</legend>
+          <label>Join a drive
+            <select name="drive">
+              <option value="">Any upcoming drive</option>
+              {upcoming.map((d) => <option value={d.slug}>{fmtDate(d.date, { day: "numeric", month: "short" })} · {d.title}</option>)}
+            </select>
+          </label>
+          <label>Anything we should know?<textarea name="note" rows="3"></textarea></label>
+          <label class="check"><input type="checkbox" name="agree" required /> I have read and will follow the code of conduct.</label>
+        </fieldset>
+
+        <p class="error" role="alert" hidden></p>
+        <div class="form-nav">
+          <button type="button" class="btn btn--ghost" data-back hidden>Back</button>
+          <button type="button" class="btn" data-next>Next</button>
+          <button type="submit" class="btn btn--give" hidden>Send my sign-up</button>
+        </div>
+        <p class="hint">Sending opens your email app with your details filled in, addressed to {contact.email}.</p>
+
+        <div class="done" hidden>
+          <img class="art" src="/art/thank-mor.svg" alt="A happy peacock dancing with confetti" />
+          <h3>Thank you! 🎉</h3>
+          <p>Just press send in your email app. We'll call you before the drive.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ email: contact.email }}>
+  const form = document.getElementById("signup");
+  const steps = [...form.querySelectorAll("fieldset")];
+  const dots = [...form.querySelectorAll(".progress li")];
+  const back = form.querySelector("[data-back]");
+  const next = form.querySelector("[data-next]");
+  const submit = form.querySelector("[type=submit]");
+  const error = form.querySelector(".error");
+  let at = 0;
+
+  // Pre-fill from links like /volunteer/?drive=… or ?program=…
+  const q = new URLSearchParams(location.search);
+  ["drive", "program"].forEach((k) => { if (q.get(k) && form.elements[k]) form.elements[k].value = q.get(k); });
+
+  const go = (n) => {
+    at = n;
+    steps.forEach((s, i) => (s.hidden = i !== at));
+    dots.forEach((d, i) => d.classList.toggle("on", i <= at));
+    back.hidden = at === 0;
+    next.hidden = at === steps.length - 1;
+    submit.hidden = at !== steps.length - 1;
+    error.hidden = true;
+    steps[at].querySelector("input, select, textarea")?.focus();
+  };
+  const valid = () => {
+    const bad = [...steps[at].querySelectorAll("[required]")].find((el) => !el.checkValidity());
+    if (bad) {
+      error.textContent = bad.type === "checkbox" ? "Please agree to the code of conduct." : "Please fill in your name and phone.";
+      error.hidden = false;
+      bad.focus();
+      return false;
+    }
+    return true;
+  };
+  next.addEventListener("click", () => valid() && go(at + 1));
+  back.addEventListener("click", () => go(at - 1));
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!valid()) return;
+    const f = new FormData(form);
+    const body = [
+      `Name: ${f.get("name")}`,
+      `Phone: ${f.get("phone")}`,
+      `Email: ${f.get("email") || "-"}`,
+      `Area: ${f.get("area") || "-"}`,
+      `Roles: ${f.getAll("roles").join(", ") || "Any"}`,
+      `Program: ${f.get("program") || "Any"}`,
+      `Drive: ${f.get("drive") || "Any upcoming"}`,
+      `Note: ${f.get("note") || "-"}`,
+    ].join("\n");
+    location.href = `mailto:${email}?subject=${encodeURIComponent("Volunteer sign-up: " + f.get("name"))}&body=${encodeURIComponent(body)}`;
+    form.querySelector(".done").hidden = false;
+    form.querySelector(".form-nav").hidden = true;
+  });
+</script>
+
+<style>
+  .hero-btn { margin-top: 1.6rem; }
+  .roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; }
+  .role { padding: 1.2rem 1rem; text-align: center; }
+  .role img { width: 120px; height: 108px; object-fit: contain; margin: 0 auto; }
+  .role h3 { font-size: 1.35rem; font-weight: 800; margin-top: 0.3rem; }
+  .role p { font-size: 0.92rem; color: var(--ink-soft); margin: 0.3rem 0 0.6rem; }
+  .two { display: grid; gap: 2.5rem; align-items: start; }
+  .form { padding: clamp(1.2rem, 4vw, 2rem); scroll-margin-top: 6rem; }
+  .progress { list-style: none; margin: 0 0 1.2rem; padding: 0; display: flex; gap: 0.5rem; }
+  .progress li { width: 36px; height: 36px; display: grid; place-items: center; font-family: var(--font-play); font-weight: 800; border: 3px solid var(--line); border-radius: 50%; background: var(--paper); }
+  .progress li.on { background: var(--mango); color: #1d1b2f; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 1rem; }
+  fieldset[hidden] { display: none; }
+  legend { font-family: var(--font-play); font-weight: 800; font-size: 1.6rem; color: var(--shyam); margin-bottom: 0.4rem; }
+  label { display: grid; gap: 0.3rem; font-weight: 800; }
+  input:not([type=checkbox]), select, textarea { font: inherit; font-weight: 400; min-height: 48px; padding: 0.6rem 0.9rem; color: var(--ink); background: var(--paper); border: 3px solid var(--line); border-radius: 14px; }
+  textarea { resize: vertical; }
+  .checks { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .check { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; padding: 0.4rem 0.8rem; border: 2px solid var(--line); border-radius: 999px; background: var(--paper); min-height: 44px; }
+  .check input { width: 20px; height: 20px; accent-color: var(--peacock); }
+  .hint { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.8rem; }
+  .error { margin-top: 1rem; font-weight: 800; color: var(--kumkum); }
+  :global([data-theme="dark"]) .error { color: var(--lotus); }
+  .form-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem; }
+  .form-nav [hidden] { display: none; }
+  .done { text-align: center; margin-top: 1rem; }
+  .done img { width: 200px; margin: 0 auto; }
+  .done h3 { font-size: 1.8rem; font-weight: 800; color: var(--shyam); }
+  @media (min-width: 900px) { .two { grid-template-columns: 0.9fr 1.1fr; } }
+</style>

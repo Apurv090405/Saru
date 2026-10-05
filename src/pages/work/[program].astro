@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import Wave from "../../components/Wave.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { programs, drives, fmtDate } from "../../data/site.js";
+
+export function getStaticPaths() {
+  return programs.map((p) => ({ params: { program: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = drives.items.filter((d) => d.program === p.slug && d.date >= today);
+const others = programs.filter((o) => o.slug !== p.slug);
+---
+
+<BaseLayout title={`${p.name} · ${p.meaning} — Saru Charitable Trust`} description={p.text}>
+  <PageHero eyebrow={`${p.name} · ${p.meaning}`} title={p.name} sub={p.text} art={p.art} artAlt={p.alt} color={p.color}>
+    <div class="hero-actions">
+      <a class="btn btn--give" href={`/volunteer/?program=${p.slug}`}>Volunteer for {p.name}</a>
+      <a class="btn btn--ghost" href="/work/">All programs</a>
+    </div>
+  </PageHero>
+
+  <Wave from="var(--paper)" to={p.wash} />
+  <section class="section" style={`background:${p.wash}`}>
+    <div class="wrap two">
+      <div class="reveal">
+        <SectionHead eyebrow="What we do" title={`Inside ${p.name}`} color={p.color} />
+        <ul class="ticks" style={`--tick:${p.color}`}>
+          {p.what.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="often"><strong>How often:</strong> {p.often}</p>
+      </div>
+      <figure class="sticker quote reveal">
+        <img class="art" src="/art/lesson-smile-first.svg" alt="" loading="lazy" />
+        <blockquote>“{p.story}”</blockquote>
+        <figcaption>A moment from {p.name} · names changed to protect the children</figcaption>
+      </figure>
+    </div>
+  </section>
+  <Wave from={p.wash} to="var(--paper)" flip />
+
+  <section class="section">
+    <div class="wrap two">
+      <div class="reveal">
+        <SectionHead eyebrow="Right now we need" title="How you can help" color={p.color} />
+        <ul class="chips needs">{p.needs.map((n) => <li>{n}</li>)}</ul>
+      </div>
+      <div class="reveal">
+        <SectionHead eyebrow="Coming up" title={`Next ${p.name} drives`} color={p.color} />
+        {upcoming.length ? (
+          <ul class="drives" role="list">
+            {upcoming.map((d) => (
+              <li class="sticker drive">
+                <span class="date" style={`--accent:${d.color}`}>{fmtDate(d.date, { day: "2-digit", month: "short" })}</span>
+                <div>
+                  <h3>{d.title}{drives.placeholder && <span class="sample-tag">sample</span>}</h3>
+                  <p>📍 {d.place} · {d.time}</p>
+                  <a href={`/volunteer/?drive=${d.slug}`}>Join this drive →</a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No drives scheduled yet. <a href="/drives/">See all drives →</a></p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--shyam">
+    <div class="wrap">
+      <SectionHead eyebrow="Explore more" title="Our other programs" color="var(--shyam)" />
+      <div class="others">
+        {others.map((o) => (
+          <a class="sticker other reveal" href={`/work/${o.slug}/`} style={`--wash:${o.wash}`}>
+            <img class="art" src={`/art/${o.art}.svg`} alt="" loading="lazy" />
+            <span><strong>{o.name}</strong> · {o.meaning}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+  .two { display: grid; gap: 2.5rem; align-items: start; }
+  .often { margin-top: 1.2rem; }
+  .quote { margin: 0; padding: 1.6rem; }
+  .quote img { width: 110px; }
+  blockquote { margin: 0.8rem 0 0; font-family: var(--font-sacred); font-size: 1.3rem; line-height: 1.5; }
+  figcaption { margin-top: 0.8rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .needs li { font-size: 0.95rem; padding: 0.35rem 0.9rem; background: var(--wash-mango); }
+  .drives { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  .drive { display: flex; gap: 1rem; padding: 1rem; align-items: center; }
+  .date { flex: none; width: 64px; height: 64px; display: grid; place-items: center; text-align: center; font-family: var(--font-play); font-weight: 800; line-height: 1.1; background: var(--accent); color: #1d1b2f; border: 3px solid var(--line); border-radius: 14px; }
+  .drive h3 { font-size: 1.1rem; font-weight: 800; }
+  .drive p { font-size: 0.9rem; color: var(--ink-soft); }
+  .drive a { font-weight: 800; font-size: 0.92rem; }
+  .others { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .other { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1rem; text-decoration: none; background: var(--wash); }
+  .other img { width: 150px; height: 110px; object-fit: contain; }
+  @media (min-width: 900px) { .two { grid-template-columns: 1fr 1fr; } }
+</style>

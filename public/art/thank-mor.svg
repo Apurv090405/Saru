@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 260" width="300" height="260" role="img" aria-label="A happy peacock dancing with confetti — thank you">
+<title>A happy peacock dancing with confetti — thank you</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g3" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g4" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g5" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g6" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g7" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient><radialGradient id="g8" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#758bbe"/><stop offset="0.55" stop-color="#2b4c9b"/><stop offset="1" stop-color="#223b79"/></radialGradient><radialGradient id="g9" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#758bbe"/><stop offset="0.55" stop-color="#2b4c9b"/><stop offset="1" stop-color="#223b79"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<g transform="rotate(-66 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g1)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(-44 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g2)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(-22 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g3)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(0 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g4)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(22 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g5)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(44 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g6)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g><g transform="rotate(66 150 190)">
+<path d="M150 190 Q148 140 150 96" fill="none" stroke-width="3"/>
+<path d="M150 90 C118 102 121.2 152 150 172 C178.8 152 182 102 150 90Z" fill="url(#g7)" stroke-width="3"/>
+<ellipse cx="150" cy="122" rx="18.56" ry="20" fill="#ffd23f" stroke="none"/>
+<ellipse cx="150" cy="122" rx="13.44" ry="15" fill="#1b9c93" stroke="none"/>
+<ellipse cx="150" cy="123" rx="7.68" ry="9" fill="#2b4c9b" stroke="none"/>
+</g>
+<ellipse cx="150" cy="244" rx="50" ry="9" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M136 236 L140 216 M164 236 L160 216" stroke-width="5"/>
+<ellipse cx="150" cy="196" rx="24" ry="30" fill="url(#g8)"/>
+<path d="M144 174 C138 146 146 128 158 126 C168 130 166 146 158 176Z" fill="url(#g9)"/>
+<circle cx="159" cy="136" r="3" fill="#1d1b2f" stroke="none"/>
+<path d="M166 139 L176 142 L166 145Z" fill="#ffd23f" stroke-width="2.5"/>
+<rect x="40" y="40" width="10" height="16" rx="3" fill="#ff6f91" stroke-width="2.5" transform="rotate(40 40 40)"/><rect x="260" y="50" width="10" height="16" rx="3" fill="#5ec8f2" stroke-width="2.5" transform="rotate(10 260 50)"/><rect x="30" y="160" width="10" height="16" rx="3" fill="#ffd23f" stroke-width="2.5" transform="rotate(30 30 160)"/><rect x="270" y="170" width="10" height="16" rx="3" fill="#3bb273" stroke-width="2.5" transform="rotate(20 270 170)"/><rect x="80" y="90" width="10" height="16" rx="3" fill="#e63946" stroke-width="2.5" transform="rotate(30 80 90)"/><rect x="230" y="110" width="10" height="16" rx="3" fill="#ff9f1c" stroke-width="2.5" transform="rotate(30 230 110)"/>
+</g>
+</svg>

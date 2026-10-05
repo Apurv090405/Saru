@@ -1,0 +1,377 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHead from "../components/SectionHead.astro";
+import Wave from "../components/Wave.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { team, timeline, contact } from "../data/site.js";
+
+const initials = (name) => name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+---
+
+<BaseLayout
+  title="About us — Saru Charitable Trust"
+  description="Why Saru exists: the story of a handful shared, our vision, the people behind the trust and how we are registered."
+>
+  <PageHero
+    eyebrow="About us"
+    title="It started with <span class='crayon'>one Sunday</span>."
+    sub="A few friends, a box of sweets and one children's home in Ahmedabad. We came back the next week, and the week after that. Saru is what grew from those Sundays."
+    art="hero-sharing"
+    artAlt="Little Kanha shares a pot of butter with two children under a kadamba tree"
+    color="var(--lotus)"
+    toran
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-mango)" />
+
+  <!-- Sudama story -->
+  <section class="section section--mango">
+    <div class="wrap story">
+      <img class="art story-art float reveal" src="/art/sudama-bundle.svg" alt="Sudama's small cloth bundle of poha, with stars rising out of it" loading="lazy" />
+      <div class="reveal">
+        <p class="kicker">The story we keep coming back to</p>
+        <h2>Sudama's handful</h2>
+        <p>
+          Sudama was Krishna's childhood friend, and very poor. When he went to
+          visit Krishna in Dwarka, all he could carry was a small bundle of
+          poha, tied in a cloth. He was too shy to even offer it.
+        </p>
+        <p>
+          Krishna found it, opened it, and ate it with more joy than any feast
+          in his palace. It was not the poha. It was the love it was given
+          with.
+        </p>
+        <p class="moral">
+          That is Saru. We don't wait to have a lot. We share a small part of
+          what we have today, and we give it with our whole heart.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="var(--wash-mango)" to="var(--paper)" flip />
+
+  <!-- Vision & mission -->
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="Why we exist" title="Our vision and mission" color="var(--parrot)" center />
+      <div class="vm">
+        <article class="sticker vm-card reveal" style="--tick:var(--sky)">
+          <img class="art" src="/art/lesson-smile-first.svg" alt="" loading="lazy" />
+          <h3>Vision</h3>
+          <p>
+            Every child growing up without a family has people who show up,
+            celebrate them, teach them and remember their name.
+          </p>
+        </article>
+        <article class="sticker vm-card reveal">
+          <img class="art" src="/art/program-saath.svg" alt="" loading="lazy" />
+          <h3>Mission</h3>
+          <ul class="ticks">
+            <li>Bring joy through celebrations and festivals (Khushi).</li>
+            <li>Make learning steady and fun (Vidya).</li>
+            <li>Build lasting relationships through mentors (Saath).</li>
+            <li>Share warm meals, together on one mat (Anna).</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="var(--paper)" to="var(--wash-sky)" />
+
+  <!-- Timeline -->
+  <section class="section section--sky">
+    <div class="wrap">
+      <SectionHead
+        eyebrow="Our journey"
+        title="Small steps, <span class='crayon' style='--crayon:var(--sky)'>one Sunday</span> at a time"
+        color="var(--sky)"
+      />
+      {timeline.placeholder && <p class="note">Sample timeline, to be replaced with the trust's real milestones.</p>}
+      <ol class="timeline" role="list">
+        {timeline.items.map((t) => (
+          <li class="sticker tl-item reveal">
+            <span class="tl-year">{t.year}</span>
+            <img class="art" src={`/art/${t.art}.svg`} alt="" loading="lazy" />
+            <h3>{t.title}</h3>
+            <p>{t.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <Wave from="var(--wash-sky)" to="var(--paper)" flip />
+
+  <!-- Team -->
+  <section class="section">
+    <div class="wrap">
+      <SectionHead
+        eyebrow="The people"
+        title="Trustees and friends"
+        sub="We use drawn avatars rather than photos, the same as we do for the children."
+        color="var(--marigold)"
+      />
+      {team.placeholder && <p class="note">Sample names and roles, to be replaced with the real trustees.</p>}
+      <ul class="team" role="list">
+        {team.items.filter((p) => p.slug !== "saru-team").map((p) => (
+          <li class="sticker person reveal">
+            <span class="avatar" style={`--c:${p.color}`} aria-hidden="true">{initials(p.name)}</span>
+            <h3>{p.name}</h3>
+            <p class="role">{p.role}</p>
+            <p>{p.bio}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Flute of the Soul -->
+  <section class="section section--shyam">
+    <div class="wrap fots reveal">
+      <img class="art fots-art float" src="/art/flute.svg" alt="A bansuri flute with a peacock feather and music notes" loading="lazy" />
+      <div>
+        <p class="kicker">Why "by Flute of the Soul"</p>
+        <h2>A flute sings only when it is empty</h2>
+        <p>
+          Krishna's bansuri is a hollow reed. It has nothing of its own, and
+          that is exactly why music can pass through it. Flute of the Soul is
+          the name behind our work: we try to be hollow enough for kindness to
+          pass through us, from the people who give to the children who
+          receive.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="Registered and accountable" title="Registration details" color="var(--shyam)" />
+      <dl class="sticker reg reveal" style="transform:none">
+        <div><dt>Trust registration</dt><dd>{contact.registration.trust}</dd></div>
+        <div><dt>PAN</dt><dd>{contact.registration.pan}</dd></div>
+        <div><dt>12A</dt><dd>{contact.registration.a12}</dd></div>
+        <div><dt>CSR-1</dt><dd>{contact.registration.csr}</dd></div>
+        <div><dt>Based in</dt><dd>{contact.city}</dd></div>
+      </dl>
+      {contact.registration.placeholder && <p class="note">Registration numbers to be added.</p>}
+      <p class="reg-more">See how every rupee is used on our <a href="/transparency/">transparency page</a>.</p>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .kicker {
+    font-family: var(--font-play);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--peacock);
+    font-size: 0.95rem;
+  }
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--shyam);
+    margin-top: 0.3rem;
+  }
+  .note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: -1.5rem 0 1.5rem;
+  }
+
+  .story {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+  .story-art {
+    width: min(300px, 70%);
+    margin: 0 auto;
+  }
+  .story p:not(.kicker) {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    max-width: 38rem;
+  }
+  .story .moral {
+    font-family: var(--font-sacred);
+    font-size: 1.25rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--gold);
+  }
+
+  .vm {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .vm-card {
+    padding: 1.6rem;
+  }
+  .vm-card img {
+    width: 160px;
+    height: auto;
+  }
+  .vm-card h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--shyam);
+    margin: 0.4rem 0 0.6rem;
+  }
+  .vm-card p {
+    font-size: 1.1rem;
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    counter-reset: tl;
+  }
+  .tl-item {
+    position: relative;
+    padding: 1.4rem 1.2rem 1.2rem;
+  }
+  .tl-year {
+    position: absolute;
+    top: -16px;
+    left: 16px;
+    font-family: var(--font-play);
+    font-weight: 800;
+    background: var(--mango);
+    color: #1d1b2f;
+    border: 3px solid var(--line);
+    border-radius: 999px;
+    padding: 0 0.8rem;
+  }
+  .tl-item img {
+    width: 110px;
+    height: 90px;
+    object-fit: contain;
+  }
+  .tl-item h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-top: 0.4rem;
+  }
+  .tl-item p {
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+  }
+
+  .team {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+  .person {
+    padding: 1.4rem;
+    text-align: center;
+  }
+  .avatar {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: 2rem;
+    color: #1d1b2f;
+    background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--c) 55%, white), var(--c));
+    border: 3px solid var(--line);
+    border-radius: 50%;
+    box-shadow: 0 4px 0 var(--line);
+  }
+  .person h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-top: 0.8rem;
+  }
+  .role {
+    font-weight: 800;
+    color: var(--peacock);
+    font-size: 0.92rem;
+  }
+  .person p:last-child {
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+  }
+
+  .fots {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .fots-art {
+    width: min(340px, 85%);
+    margin: 0 auto;
+  }
+  .fots p:last-child {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    max-width: 38rem;
+  }
+
+  .reg {
+    margin: 0;
+    padding: 1.4rem;
+    display: grid;
+    gap: 1rem;
+  }
+  .reg dt {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .reg dd {
+    margin: 0.1rem 0 0;
+    font-family: var(--font-play);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .reg-more {
+    margin-top: 1.4rem;
+  }
+
+  @media (min-width: 640px) {
+    .timeline {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .reg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 768px) {
+    .story {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+    .vm {
+      grid-template-columns: 1fr 1fr;
+    }
+    .fots {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+  @media (min-width: 1000px) {
+    .timeline {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .reg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

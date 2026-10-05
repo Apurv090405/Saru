@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280" role="img" aria-label="Mitthu the parrot reading on a stack of books — Vidya, learning">
+<title>Mitthu the parrot reading on a stack of books — Vidya, learning</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#758bbe"/><stop offset="0.55" stop-color="#2b4c9b"/><stop offset="1" stop-color="#223b79"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffa1b8"/><stop offset="0.55" stop-color="#ff6f91"/><stop offset="1" stop-color="#c75771"/></radialGradient><radialGradient id="g3" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffe282"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#c7a431"/></radialGradient><radialGradient id="g4" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#63a9a1"/><stop offset="0.55" stop-color="#0f7a6e"/><stop offset="1" stop-color="#0c5f56"/></radialGradient><radialGradient id="g5" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#80cda4"/><stop offset="0.55" stop-color="#3bb273"/><stop offset="1" stop-color="#2e8b5a"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<ellipse cx="180" cy="258" rx="110" ry="19.8" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<rect x="90" y="214" width="180" height="34" rx="8" fill="url(#g1)"/><path d="M110 230 L250 230" stroke="#ffd23f" stroke-width="4"/>
+<rect x="104" y="182" width="156" height="32" rx="8" fill="url(#g2)"/>
+<rect x="96" y="152" width="166" height="30" rx="8" fill="url(#g3)"/><path d="M116 167 L240 167" stroke="#ff9f1c" stroke-width="4"/>
+
+<path d="M197 150.75 L197 97.25 L248 107.25 L299 97.25 L299 150.75 L248 160.75Z" fill="url(#g4)"/>
+<path d="M248 103.25 C230 87.25 213.8 89.25 203 93.25 L203 142.75 C213.8 138.75 230 140.75 248 152.75Z" fill="#ffffff"/>
+<path d="M248 103.25 C266 87.25 282.2 89.25 293 93.25 L293 142.75 C282.2 138.75 266 140.75 248 152.75Z" fill="#fff4d6"/>
+<g stroke-width="2.5" opacity="0.45">
+<path d="M212 109.09 L239 112.06"/><path d="M212 118.99 L239 121.96000000000001"/><path d="M212 128.89000000000001 L233.6 131.365"/>
+<path d="M257 112.06 L284 109.09"/><path d="M257 121.96000000000001 L284 118.99"/>
+</g>
+<path d="M120 150 C108 120 112 92 134 76 C160 60 186 80 184 108 C182 130 170 146 150 152Z" fill="url(#g5)"/>
+<path d="M126 148 C112 160 96 172 86 192 C104 182 120 170 136 152Z" fill="#2e8b57"/>
+<path d="M152 100 C170 110 174 130 160 142 C150 128 146 114 152 100Z" fill="#2e8b57"/>
+<path d="M176 84 C192 84 198 96 190 108 C184 102 178 98 172 98Z" fill="#e63946"/>
+<circle cx="160" cy="88" r="7" fill="#ffffff" stroke-width="3"/><circle cx="162" cy="88" r="3" fill="#1d1b2f" stroke="none"/>
+<ellipse cx="138" cy="96" rx="8" ry="14" transform="rotate(-25 138 96)" fill="#fff" opacity="0.55" stroke="none"/>
+<path d="M300 35 Q301.98 44.02 311 46 Q301.98 47.98 300 57 Q298.02 47.98 289 46 Q298.02 44.02 300 35Z" fill="#ffd23f" stroke-width="2.5"/><path d="M60 61 Q61.62 68.38 69 70 Q61.62 71.62 60 79 Q58.38 71.62 51 70 Q58.38 68.38 60 61Z" fill="#5ec8f2" stroke-width="2.5"/>
+<text x="216" y="60" font-family="Baloo 2, sans-serif" font-size="30" font-weight="800" fill="#ff9f1c" stroke-width="2">अ</text>
+<text x="280" y="88" font-family="Baloo 2, sans-serif" font-size="26" font-weight="800" fill="#ff6f91" stroke-width="2">A</text>
+<text x="60" y="124" font-family="Baloo 2, sans-serif" font-size="26" font-weight="800" fill="#5ec8f2" stroke-width="2">૧</text>
+</g>
+</svg>

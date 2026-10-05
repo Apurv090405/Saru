@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140" role="img" aria-label="A heart held by a helping hand">
+<title>A heart held by a helping hand</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffa1b8"/><stop offset="0.55" stop-color="#ff6f91"/><stop offset="1" stop-color="#c75771"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<path d="M70 94.4 C12.399999999999999 58.4 37.6 15.199999999999996 70 45.8 C102.4 15.199999999999996 127.6 58.4 70 94.4Z" fill="url(#g1)" stroke-width="3"/><ellipse cx="52" cy="48" rx="8" ry="5" transform="rotate(-25 52 48)" fill="#fff" opacity="0.55" stroke="none"/>
+<path d="M24 104 C50 96 90 96 116 104" fill="none" stroke="#c98b5e" stroke-width="16"/><path d="M24 104 C50 96 90 96 116 104" fill="none" stroke-width="3"/>
+</g>
+</svg>

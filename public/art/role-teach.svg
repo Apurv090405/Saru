@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" width="200" height="180" role="img" aria-label="A small blackboard with letters — teach">
+<title>A small blackboard with letters — teach</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#63a9a1"/><stop offset="0.55" stop-color="#0f7a6e"/><stop offset="1" stop-color="#0c5f56"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="100" cy="92" r="76" fill="#3bb273" opacity="0.25" stroke="none"/>
+<ellipse cx="100" cy="166" rx="60" ry="10.799999999999999" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M70 140 L60 166 M130 140 L140 166" stroke="#8a5a3b" stroke-width="6"/>
+<rect x="40" y="44" width="120" height="96" rx="10" fill="#8a5a3b"/>
+<rect x="50" y="54" width="100" height="76" rx="6" fill="url(#g1)"/>
+<text x="100" y="104" text-anchor="middle" font-family="Baloo 2, sans-serif" font-size="30" font-weight="800" fill="#fff" stroke="none">क ख A</text>
+<path d="M166 27 Q167.62 34.38 175 36 Q167.62 37.62 166 45 Q164.38 37.62 157 36 Q164.38 34.38 166 27Z" fill="#ffd23f" stroke-width="2.5"/>
+</g>
+</svg>

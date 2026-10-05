@@ -1,0 +1,170 @@
+---
+// Bottom bar for phones: thumbs live at the bottom of the screen.
+// "More" opens a small sheet with the remaining pages (native popover).
+const items = [
+  { href: "/", label: "Home", icon: "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" },
+  { href: "/work/", label: "Work", icon: "M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z" },
+  { href: "/volunteer/", label: "Join", join: true },
+  { href: "/drives/", label: "Drives", icon: "M3 17h1m16 0h1M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0m10 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0M3 17V8a2 2 0 0 1 2-2h10l5 5v6" },
+];
+const more = [
+  ["About us", "/about/"],
+  ["Lessons", "/lessons/"],
+  ["Moments", "/moments/"],
+  ["Transparency", "/transparency/"],
+  ["Contact", "/contact/"],
+];
+const here = Astro.url.pathname;
+const isCurrent = (href) => (href === "/" ? here === "/" : here.startsWith(href));
+---
+
+<nav class="mobile-nav" aria-label="Quick">
+  {
+    items.map((i) =>
+      i.join ? (
+        <a class="join" href={i.href} aria-current={isCurrent(i.href) ? "page" : undefined}>
+          <img src="/art/kindness-hero.svg" alt="" width="40" height="40" />
+          <span>{i.label}</span>
+        </a>
+      ) : (
+        <a href={i.href} aria-current={isCurrent(i.href) ? "page" : undefined}>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d={i.icon} /></svg>
+          <span>{i.label}</span>
+        </a>
+      )
+    )
+  }
+  <button type="button" popovertarget="more-sheet" class="more-btn">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01" stroke-width="4" /></svg>
+    <span>More</span>
+  </button>
+</nav>
+
+<div id="more-sheet" popover class="more-sheet">
+  <p class="sheet-title">More from Saru</p>
+  <ul role="list">
+    {more.map(([label, href]) => (
+      <li><a href={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</a></li>
+    ))}
+  </ul>
+  <button type="button" popovertarget="more-sheet" popovertargetaction="hide" class="sheet-close">Close</button>
+</div>
+
+<style>
+  .mobile-nav {
+    position: fixed;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: calc(0.6rem + env(safe-area-inset-bottom));
+    z-index: 60;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: end;
+    background: var(--paper-raised);
+    border: 3px solid var(--line);
+    border-radius: 22px;
+    box-shadow: 0 5px 0 var(--line);
+    padding: 0.35rem 0.25rem;
+  }
+  .mobile-nav a,
+  .more-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    min-height: 48px;
+    justify-content: center;
+    text-decoration: none;
+    font-family: var(--font-play);
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    border-radius: 14px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .mobile-nav a[aria-current="page"] {
+    color: var(--ink);
+    background: var(--wash-mango);
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .mobile-nav .join {
+    color: var(--ink);
+    margin-top: -1.6rem;
+    background: none;
+  }
+  .join img {
+    width: 56px;
+    height: 56px;
+    padding: 4px;
+    background: var(--marigold);
+    border: 3px solid var(--line);
+    border-radius: 50%;
+    box-shadow: 0 4px 0 var(--line);
+  }
+  .more-sheet {
+    position: fixed;
+    inset: auto 0.6rem calc(5.6rem + env(safe-area-inset-bottom)) auto;
+    margin: 0;
+    width: min(260px, calc(100vw - 1.2rem));
+    padding: 1rem;
+    background: var(--paper-raised);
+    color: var(--ink);
+    border: 3px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 6px 6px 0 var(--line);
+  }
+  .more-sheet::backdrop {
+    background: rgba(29, 27, 47, 0.3);
+  }
+  .sheet-title {
+    font-family: var(--font-play);
+    font-weight: 800;
+    color: var(--shyam);
+    margin-bottom: 0.4rem;
+  }
+  .more-sheet ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .more-sheet a {
+    display: block;
+    padding: 0.6rem 0.7rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    min-height: 44px;
+  }
+  .more-sheet a:hover,
+  .more-sheet a[aria-current="page"] {
+    background: var(--wash-mango);
+  }
+  .sheet-close {
+    margin-top: 0.5rem;
+    width: 100%;
+    min-height: 44px;
+    font: inherit;
+    font-weight: 800;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 12px;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  @media (min-width: 1000px) {
+    .mobile-nav,
+    .more-sheet {
+      display: none;
+    }
+  }
+</style>

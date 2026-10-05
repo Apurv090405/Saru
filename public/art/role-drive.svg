@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" width="200" height="180" role="img" aria-label="A steering wheel — drive the van">
+<title>A steering wheel — drive the van</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#758bbe"/><stop offset="0.55" stop-color="#2b4c9b"/><stop offset="1" stop-color="#223b79"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="100" cy="92" r="76" fill="#2b4c9b" opacity="0.25" stroke="none"/>
+<ellipse cx="100" cy="166" rx="56" ry="10.08" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<circle cx="100" cy="94" r="56" fill="none" stroke="#1d1b2f" stroke-width="20"/>
+<circle cx="100" cy="94" r="56" fill="none" stroke="#ffd23f" stroke-width="12"/>
+<circle cx="100" cy="94" r="16" fill="url(#g1)"/>
+<path d="M50 94 L84 94 M116 94 L150 94 M100 110 L100 148" stroke="#2b4c9b" stroke-width="10"/>
+<path d="M100 100.3 C88.8 93.3 93.7 84.9 100 90.85 C106.3 84.9 111.2 93.3 100 100.3Z" fill="#ff6f91" stroke-width="3"/>
+</g>
+</svg>

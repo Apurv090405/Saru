@@ -1,0 +1,57 @@
+---
+// The Flute line, carried over from Flute of the Soul's breath line: a gold
+// thread that draws itself down the page margin as you read.
+let d = "M14 0";
+for (let y = 0; y < 1000; y += 50) d += ` Q${y % 100 ? 4 : 24} ${y + 25} 14 ${y + 50}`;
+---
+
+<svg class="flute-line" viewBox="0 0 28 1000" preserveAspectRatio="none" aria-hidden="true">
+  <path class="track" d={d} />
+  <path class="melody" d={d} pathLength="1" />
+</svg>
+
+<script>
+  const melody = document.querySelector<SVGPathElement>(".flute-line .melody");
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.min(1, scrollY / max) : 1;
+    melody?.style.setProperty("stroke-dashoffset", String(1 - p));
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+</script>
+
+<style>
+  .flute-line {
+    display: none;
+    position: fixed;
+    left: 14px;
+    top: 90px;
+    bottom: 24px;
+    width: 28px;
+    height: calc(100vh - 114px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  path {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .track {
+    stroke: color-mix(in srgb, var(--gold) 22%, transparent);
+  }
+  .melody {
+    stroke: var(--gold);
+    stroke-width: 3.5;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  @media (min-width: 1240px) {
+    .flute-line {
+      display: block;
+    }
+  }
+</style>

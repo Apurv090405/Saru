@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import Wave from "../components/Wave.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { lessons } from "../data/site.js";
+
+const site = Astro.site;
+const wa = (l) => `https://wa.me/?text=${encodeURIComponent(`${l.title}: ${l.line} — Saru Charitable Trust ${new URL(`/lessons/#${l.slug}`, site)}`)}`;
+---
+
+<BaseLayout title="Lessons — Saru Charitable Trust" description="Eight small values we practise with the children, each with a story, an activity and a card you can share.">
+  <PageHero
+    eyebrow="The lessons wall"
+    title="What we learn <span class='crayon'>together</span>"
+    sub="Eight small values, one drawing at a time. Each has a short story from our drives and an activity to try at home. Save any card and share it."
+    art="lesson-keep-learning"
+    artAlt="An open book with stars rising"
+    color="var(--mango)"
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-mango)" />
+  <section class="section section--mango">
+    <div class="wrap">
+      <ol class="lessons" role="list">
+        {lessons.map((l, i) => (
+          <li class="sticker lesson reveal" id={l.slug} style={`--accent:${l.color}`}>
+            <div class="l-art">
+              <span class="num">{i + 1}</span>
+              <img class="art" src={`/art/lesson-${l.slug}.svg`} alt="" loading="lazy" />
+            </div>
+            <div class="l-body">
+              <h2>{l.title}</h2>
+              <p class="line">{l.line}</p>
+              <h3>The story</h3>
+              <p>{l.story}</p>
+              <h3>Try this</h3>
+              <p>{l.activity}</p>
+              <div class="l-actions">
+                <a class="btn btn--mango small" href={`/art/lesson-${l.slug}@2x.png`} download>Save card<span class="sr-only"> for {l.title}</span></a>
+                <a class="btn btn--ghost small" href={wa(l)} target="_blank" rel="noopener">Share on WhatsApp</a>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+  <Wave from="var(--wash-mango)" to="var(--paper)" flip />
+
+  <CtaBand title="Teach a lesson <span class='crayon'>yourself</span>." text="Our Sunday sessions always need people who can tell a good story." art="role-teach" />
+</BaseLayout>
+
+<style>
+  .lessons { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.8rem; }
+  .lesson { display: grid; overflow: hidden; scroll-margin-top: 6rem; border-top: 10px solid var(--accent); }
+  .l-art { position: relative; display: grid; place-items: center; padding: 1.2rem; background: color-mix(in srgb, var(--accent) 14%, var(--paper-raised)); }
+  .l-art img { width: 100%; max-width: 240px; height: auto; }
+  .num { position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; display: grid; place-items: center; font-family: var(--font-play); font-weight: 800; font-size: 1.2rem; background: var(--mango); color: #1d1b2f; border: 3px solid var(--line); border-radius: 50%; }
+  .l-body { padding: 1.4rem 1.5rem 1.6rem; }
+  h2 { font-size: 2rem; font-weight: 800; color: var(--shyam); }
+  .line { font-family: var(--font-sacred); font-size: 1.15rem; margin-top: 0.2rem; }
+  h3 { font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--peacock); margin-top: 1rem; }
+  .l-body p:not(.line) { color: var(--ink-soft); margin-top: 0.2rem; }
+  .l-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.2rem; }
+  .small { min-height: 44px; padding: 0.4em 1.1em; font-size: 0.95rem; }
+  @media (min-width: 768px) {
+    .lessons { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1100px) {
+    .lesson { grid-template-columns: 0.8fr 1.2fr; }
+    .l-art { border-right: 3px solid var(--line); }
+  }
+</style>

@@ -1,0 +1,132 @@
+---
+const cols = [
+  { head: "Our work", links: [["Khushi · Smiles", "/work/khushi/"], ["Vidya · Learning", "/work/vidya/"], ["Saath · Belonging", "/work/saath/"], ["Anna · Meals", "/work/anna/"]] },
+  { head: "Join in", links: [["Volunteer", "/volunteer/"], ["Upcoming drives", "/drives/"], ["Moments", "/moments/"], ["Lessons", "/lessons/"]] },
+  { head: "Saru", links: [["About us", "/about/"], ["Transparency", "/transparency/"], ["Contact", "/contact/"]] },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="top">
+      <div class="intro">
+        <img class="art" src="/art/gauri-nandu.svg" alt="Gauri the cow and Nandu the calf, resting together" width="320" height="220" loading="lazy" />
+        <p class="kicker">Saru · સારું · simply, good</p>
+        <p class="line">What we have today is enough to share.</p>
+      </div>
+      <nav class="cols" aria-label="Footer">
+        {cols.map((c) => (
+          <div>
+            <p class="col-head">{c.head}</p>
+            <ul>{c.links.map(([label, href]) => <li><a href={href}>{label}</a></li>)}</ul>
+          </div>
+        ))}
+      </nav>
+    </div>
+
+    <p class="wordmark" aria-hidden="true">Saru</p>
+
+    <div class="base">
+      <p>© {year} Saru Charitable Trust · by <a href="https://fluteofthesoul.dev">Flute of the Soul</a></p>
+      <!-- PLACEHOLDER: replace with real registration numbers -->
+      <p>Reg. No. [to be added]</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--footer);
+    color: #fdf6e3;
+    padding: clamp(3rem, 7vw, 5rem) 0 calc(7rem + env(safe-area-inset-bottom));
+    position: relative;
+    overflow: hidden;
+  }
+  .top {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .art {
+    width: 200px;
+    height: auto;
+    background: #fffaf0;
+    border: 3px solid #1d1b2f;
+    border-radius: 24px;
+    box-shadow: 6px 6px 0 #1d1b2f;
+    padding: 0.5rem;
+  }
+  .kicker {
+    margin-top: 1.4rem;
+    font-family: var(--font-sacred);
+    color: #ffd23f;
+    letter-spacing: 0.04em;
+  }
+  .line {
+    font-family: var(--font-play);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+    line-height: 1.15;
+    margin-top: 0.4rem;
+    max-width: 18ch;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+  .col-head {
+    font-family: var(--font-play);
+    font-weight: 800;
+    color: #ffd23f;
+    margin-bottom: 0.5rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+  a {
+    color: #fdf6e3;
+    text-decoration-color: rgba(255, 210, 63, 0.5);
+    text-underline-offset: 4px;
+  }
+  a:hover {
+    color: #ffd23f;
+  }
+  .wordmark {
+    font-family: var(--font-play);
+    font-weight: 800;
+    font-size: clamp(6rem, 26vw, 18rem);
+    line-height: 0.8;
+    margin: 2.5rem 0 1.5rem;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 210, 63, 0.55);
+    letter-spacing: -0.02em;
+    user-select: none;
+  }
+  .base {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    color: #d9def0;
+    border-top: 2px dashed rgba(255, 255, 255, 0.25);
+    padding-top: 1.2rem;
+  }
+  @media (min-width: 768px) {
+    .top {
+      grid-template-columns: 1.1fr 1.4fr;
+    }
+    .cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 1000px) {
+    .footer {
+      padding-bottom: 2.5rem;
+    }
+  }
+</style>

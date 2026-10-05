@@ -1,0 +1,29 @@
+---
+// A wavy edge between two sections. `from` is the colour above, `to` below.
+interface Props { from: string; to: string; flip?: boolean }
+const { from, to, flip = false } = Astro.props;
+---
+
+<div class="wave" style={`--from:${from};--to:${to}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class:list={{ flip }}>
+    <path d="M0 30 C180 0 360 60 540 30 C720 0 900 60 1080 30 C1260 0 1350 40 1440 26 L1440 60 L0 60Z" />
+  </svg>
+</div>
+
+<style>
+  .wave {
+    background: var(--from);
+    line-height: 0;
+    margin-bottom: -1px;
+  }
+  svg {
+    width: 100%;
+    height: clamp(28px, 4vw, 56px);
+  }
+  path {
+    fill: var(--to);
+  }
+  .flip {
+    transform: scaleX(-1);
+  }
+</style>

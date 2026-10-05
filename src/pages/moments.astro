@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import Wave from "../components/Wave.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+// Illustrated moments stand in for photos, so no child can be identified.
+const groups = [
+  { title: "Khushi · celebrations", color: "var(--lotus)", items: [
+    { art: "program-khushi", caption: "Balloons at a birthday" },
+    { art: "thank-mor", caption: "Dancing at Navratri" },
+    { art: "role-celebrate", caption: "Party poppers, ready" },
+    { art: "hero-sharing", caption: "Makhan for everyone on Janmashtami" },
+  ]},
+  { title: "Vidya · learning", color: "var(--parrot)", items: [
+    { art: "program-vidya", caption: "The library grows" },
+    { art: "lesson-keep-learning", caption: "Sunday story hour" },
+    { art: "role-teach", caption: "क, ख and A on the board" },
+  ]},
+  { title: "Saath & Anna · together", color: "var(--sky)", items: [
+    { art: "program-saath", caption: "Friends, holding on" },
+    { art: "program-anna", caption: "Sunday thali" },
+    { art: "lesson-plant-tree", caption: "Our first saplings" },
+    { art: "drive-van", caption: "The van, ready to roll" },
+    { art: "lesson-help-friend", caption: "One umbrella for two" },
+  ]},
+];
+const all = groups.flatMap((g) => g.items);
+---
+
+<BaseLayout title="Moments — Saru Charitable Trust" description="Little memories from our drives, drawn as illustrations to keep every child safe.">
+  <PageHero
+    eyebrow="Moments"
+    title="Little <span class='crayon' style='--crayon:var(--lotus)'>memories</span>"
+    sub="We draw our moments instead of photographing the children. Their stories are shared; their faces stay private."
+    art="role-click"
+    artAlt="A camera"
+    color="var(--lotus)"
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-lotus)" />
+  <section class="section section--lotus">
+    <div class="wrap">
+      {groups.map((g) => (
+        <div class="group">
+          <h2 style={`--accent:${g.color}`}><span class="dot"></span>{g.title}</h2>
+          <ul class="grid" role="list">
+            {g.items.map((m, i) => (
+              <li class="polaroid reveal" style={`--tilt:${i % 2 ? 2 : -2}deg`}>
+                <button type="button" data-index={all.indexOf(m)} aria-label={`Open: ${m.caption}`}>
+                  <img class="art" src={`/art/${m.art}.svg`} alt="" loading="lazy" />
+                </button>
+                <p>{m.caption}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <p class="safe">🔒 Our promise: we never publish a photo in which a child in care can be identified.</p>
+    </div>
+  </section>
+  <Wave from="var(--wash-lotus)" to="var(--paper)" flip />
+
+  <dialog class="lightbox" aria-label="Moment viewer">
+    <img class="art" alt="" />
+    <p class="lb-caption"></p>
+    <div class="lb-nav">
+      <button type="button" data-step="-1" aria-label="Previous">←</button>
+      <button type="button" data-close aria-label="Close">✕</button>
+      <button type="button" data-step="1" aria-label="Next">→</button>
+    </div>
+  </dialog>
+
+  <CtaBand />
+</BaseLayout>
+
+<script define:vars={{ all }}>
+  const dlg = document.querySelector(".lightbox");
+  const img = dlg.querySelector("img");
+  const cap = dlg.querySelector(".lb-caption");
+  let i = 0;
+  const show = (n) => {
+    i = (n + all.length) % all.length;
+    img.src = `/art/${all[i].art}.svg`;
+    img.alt = all[i].caption;
+    cap.textContent = all[i].caption;
+  };
+  document.querySelectorAll(".polaroid button").forEach((b) =>
+    b.addEventListener("click", () => { show(Number(b.dataset.index)); dlg.showModal(); })
+  );
+  dlg.addEventListener("click", (e) => {
+    const t = e.target.closest("button");
+    if (e.target === dlg || t?.hasAttribute("data-close")) dlg.close();
+    else if (t?.dataset.step) show(i + Number(t.dataset.step));
+  });
+  dlg.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") show(i + 1);
+    if (e.key === "ArrowLeft") show(i - 1);
+  });
+</script>
+
+<style>
+  .group + .group { margin-top: 3rem; }
+  h2 { display: flex; align-items: center; gap: 0.6rem; font-size: 1.7rem; font-weight: 800; color: var(--shyam); margin-bottom: 1.4rem; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2.5px solid var(--line); }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.4rem; }
+  .polaroid { background: #fff; color: #1d1b2f; padding: 0.6rem 0.6rem 0.8rem; border: 3px solid var(--line); box-shadow: 5px 5px 0 var(--line); transform: rotate(var(--tilt)); transition: transform 0.25s ease; }
+  .polaroid:hover { transform: rotate(0) scale(1.03); }
+  .polaroid button { display: block; width: 100%; padding: 0; border: 0; background: #fff3c4; cursor: zoom-in; }
+  .polaroid img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+  .polaroid p { font-family: var(--font-play); font-weight: 700; text-align: center; margin-top: 0.5rem; line-height: 1.2; }
+  .safe { margin-top: 2.5rem; font-weight: 700; }
+  .lightbox { width: min(640px, calc(100vw - 2rem)); padding: 1rem; background: #fffaf0; color: #1d1b2f; border: 3px solid #1d1b2f; border-radius: 24px; box-shadow: 8px 8px 0 #1d1b2f; }
+  .lightbox::backdrop { background: rgba(18, 26, 58, 0.7); }
+  .lightbox img { width: 100%; max-height: 60vh; object-fit: contain; }
+  .lb-caption { text-align: center; font-family: var(--font-play); font-weight: 800; font-size: 1.3rem; margin-top: 0.6rem; }
+  .lb-nav { display: flex; justify-content: center; gap: 0.8rem; margin-top: 0.8rem; }
+  .lb-nav button { width: 48px; height: 48px; font-size: 1.3rem; font-weight: 800; background: #ffd23f; color: #1d1b2f; border: 3px solid #1d1b2f; border-radius: 50%; box-shadow: 0 3px 0 #1d1b2f; cursor: pointer; }
+  @media (min-width: 768px) { .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
+</style>

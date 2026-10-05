@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import Wave from "../../components/Wave.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { programs } from "../../data/site.js";
+
+const steps = [
+  { art: "drive-van", title: "We arrive", text: "Volunteers meet at the home with supplies, games and a plan." },
+  { art: "lesson-smile-first", title: "We play and learn", text: "Games, a lesson, a story or a celebration, in small groups." },
+  { art: "program-anna", title: "We eat together", text: "One mat, one meal, everyone at the same level." },
+  { art: "lesson-thank-you", title: "We say thank you", text: "A closing circle where every child thanks someone by name." },
+];
+---
+
+<BaseLayout title="Our work — Saru Charitable Trust" description="Khushi, Vidya, Saath and Anna: the four ways Saru shows up for children without families.">
+  <PageHero
+    eyebrow="Our work"
+    title="Four ways we <span class='crayon' style='--crayon:var(--lotus)'>show up</span>"
+    sub="Smiles, learning, belonging and meals. Each program has its own colour, so the children know them by sight."
+    art="program-saath"
+    artAlt="Three children holding hands"
+    color="var(--sky)"
+  />
+
+  <Wave from="var(--paper)" to="var(--wash-sky)" />
+  <section class="section section--sky">
+    <div class="wrap programs">
+      {programs.map((p) => (
+        <a class="sticker program reveal" href={`/work/${p.slug}/`} style={`--accent:${p.color};--wash:${p.wash}`}>
+          <div class="p-art"><img class="art" src={`/art/${p.art}.svg`} alt={p.alt} loading="lazy" /></div>
+          <div class="p-body">
+            <span class="p-tag">{p.meaning}</span>
+            <h2>{p.name}</h2>
+            <p>{p.text}</p>
+            <p class="p-often">🗓 {p.often}</p>
+            <span class="p-more">Explore {p.name} →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+  <Wave from="var(--wash-sky)" to="var(--paper)" flip />
+
+  <section class="section">
+    <div class="wrap">
+      <SectionHead eyebrow="A drive, step by step" title="How a Sunday with us works" color="var(--marigold)" center />
+      <ol class="steps" role="list">
+        {steps.map((s, i) => (
+          <li class="sticker step reveal">
+            <span class="num">{i + 1}</span>
+            <img class="art" src={`/art/${s.art}.svg`} alt="" loading="lazy" />
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .programs { display: grid; gap: 1.6rem; }
+  .program { display: grid; overflow: hidden; text-decoration: none; }
+  .p-art { background: var(--wash); padding: 1.2rem; border-bottom: 3px solid var(--line); display: grid; place-items: center; }
+  .p-art img { width: 100%; max-width: 320px; height: auto; }
+  .p-body { padding: 1.4rem 1.5rem 1.6rem; }
+  .p-tag { display: inline-block; font-family: var(--font-play); font-weight: 800; font-size: 0.85rem; color: #1d1b2f; background: var(--accent); border: 2.5px solid var(--line); border-radius: 999px; padding: 0 0.7rem; }
+  h2 { font-size: 2.4rem; font-weight: 800; color: var(--shyam); margin-top: 0.4rem; }
+  .p-body > p { color: var(--ink-soft); margin-top: 0.4rem; }
+  .p-often { font-weight: 700; }
+  .p-more { display: inline-block; margin-top: 1rem; font-family: var(--font-play); font-weight: 800; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .step { position: relative; padding: 1.4rem 1.2rem; text-align: center; }
+  .num { position: absolute; top: -16px; left: -10px; width: 36px; height: 36px; display: grid; place-items: center; font-family: var(--font-play); font-weight: 800; background: var(--mango); color: #1d1b2f; border: 3px solid var(--line); border-radius: 50%; }
+  .step img { width: 140px; height: 110px; object-fit: contain; margin: 0 auto; }
+  .step h3 { font-size: 1.3rem; font-weight: 800; margin-top: 0.5rem; }
+  .step p { color: var(--ink-soft); margin-top: 0.3rem; }
+  @media (min-width: 768px) {
+    .programs { grid-template-columns: 1fr 1fr; }
+  }
+</style>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="240" height="200" role="img" aria-label="A sapling in a pot with a watering can — plant a tree">
+<title>A sapling in a pot with a watering can — plant a tree</title>
+<defs><radialGradient id="g1" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#db9e80"/><stop offset="0.55" stop-color="#c8693c"/><stop offset="1" stop-color="#9c522f"/></radialGradient><radialGradient id="g2" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#96dbf7"/><stop offset="0.55" stop-color="#5ec8f2"/><stop offset="1" stop-color="#499cbd"/></radialGradient></defs>
+<g stroke="#1d1b2f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="120" cy="100" r="86" fill="#3bb273" opacity="0.25" stroke="none"/>
+<ellipse cx="110" cy="180" rx="60" ry="10.799999999999999" fill="#1d1b2f" opacity="0.12" stroke="none"/>
+<path d="M80 130 L140 130 L132 176 L88 176Z" fill="url(#g1)"/>
+<path d="M110 130 L110 82" stroke-width="5"/>
+<path d="M110 96 Q128 78 150 96 Q128 114 110 96Z" transform="rotate(-40 110 96)" fill="#3bb273" stroke-width="3"/><path d="M110 110 Q127.1 92.9 148 110 Q127.1 127.1 110 110Z" transform="rotate(-150 110 110)" fill="#3bb273" stroke-width="3"/><path d="M110 84 Q123.5 70.5 140 84 Q123.5 97.5 110 84Z" transform="rotate(-90 110 84)" fill="#2e8b57" stroke-width="3"/>
+<path d="M150 90 L180 74 L196 96 L168 112Z" fill="url(#g2)"/><path d="M152 92 L124 70" stroke-width="6"/>
+<circle cx="126" cy="82" r="3" fill="#5ec8f2" opacity="1" stroke="none"/><circle cx="118" cy="92" r="3" fill="#5ec8f2" opacity="1" stroke="none"/><path d="M60 51 Q61.62 58.38 69 60 Q61.62 61.62 60 69 Q58.38 61.62 51 60 Q58.38 58.38 60 51Z" fill="#ffd23f" stroke-width="2.5"/>
+</g>
+</svg>
